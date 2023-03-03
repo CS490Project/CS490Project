@@ -11,7 +11,7 @@ Original App Design Project - README Template
 
 ## Overview
 ### Description
-This app does something, don't know what it does exactly
+This app allows people to draw pictures in a collage format. Friends will able to view other's pictures.
 
 ### App Evaluation
 [Evaluation of your app across the following attributes]
@@ -69,12 +69,11 @@ This app does something, don't know what it does exactly
 
 **Flow Navigation** (Screen to Screen)
 
-* [list first screen here]
-   * [list screen navigation here]
-   * ...
-* [list second screen here]
-   * [list screen navigation here]
-   * ...
+* Logout
+   * When a user clicks this button, it brings them to the sign in screen.
+   * Will be on both of the tab screens.
+* Create new drawing
+   * When a user presses the plus sign, it allows them to create a new drawing.
 
 ## Wireframes
 [Add picture of your hand sketched wireframes in this section]
