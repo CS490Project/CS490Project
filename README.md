@@ -1,7 +1,5 @@
-Original App Design Project - README Template
-===
 
-# COLLAGE REAL
+# PictureThis
 
 ## Table of Contents
 1. [Overview](#Overview)
