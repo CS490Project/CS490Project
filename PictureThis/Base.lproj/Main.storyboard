@@ -58,6 +58,9 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Log in"/>
+                                                <connections>
+                                                    <segue destination="s7K-4A-ygj" kind="push" id="Kff-cv-9CZ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -74,6 +77,9 @@
                                                 <rect key="frame" x="182.66666666666666" y="0.0" width="83.999999999999972" height="34"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
+                                                <connections>
+                                                    <segue destination="gJC-QY-piA" kind="show" id="1zs-FD-wie"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -96,6 +102,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3.8167938931297707" y="3.5211267605633805"/>
+        </scene>
+        <!--SignUp-->
+        <scene sceneID="40R-98-rPK">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SignUp" storyboardName="SignUp" id="yGC-9C-aRW" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="MQ2-eL-8Ue"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cwX-q1-Dwq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1720" y="-89"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YHL-xC-zRp">
+            <objects>
+                <navigationController id="gJC-QY-piA" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="UQK-b4-row"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OtP-Zh-PKp">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="yGC-9C-aRW" kind="relationship" relationship="rootViewController" id="Tob-51-Ub1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yvo-WL-sCJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="813" y="41"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SJI-M5-uhX">
+            <objects>
+                <navigationController id="s7K-4A-ygj" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4ee-E4-nGk"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EhF-bT-Wo1">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="d3k-vh-xft" kind="relationship" relationship="rootViewController" id="mwV-4Q-K7g"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ees-xR-yRc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="529" y="780"/>
+        </scene>
+        <!--MainTabViewStoryboard-->
+        <scene sceneID="MWv-73-w7J">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MainTabViewStoryboard" id="d3k-vh-xft" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="UAh-AJ-EgC"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hS5-qk-6aE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1445" y="678"/>
         </scene>
     </scenes>
     <resources>
