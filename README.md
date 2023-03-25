@@ -26,8 +26,8 @@ This app allows people to draw pictures in a collage format. Friends will able t
 
 **Required Must-have Stories**
 
-* Users can create an account and sign in COMPLETED
-* Users can choose a topic. COMPLETED
+* Users can create an account and sign in COMPLETED ✔
+* Users can choose a topic. COMPLETED ✔
 * Users can add friends
 * Users are given a topic to draw
 
@@ -35,7 +35,7 @@ This app allows people to draw pictures in a collage format. Friends will able t
 
 * Vote button
 * Commenting
-* Super nice UI COMPLETED
+* Super nice UI COMPLETED ✔
 * Brush thickness 
 * Different types of brushes
 
