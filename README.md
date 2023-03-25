@@ -26,8 +26,8 @@ This app allows people to draw pictures in a collage format. Friends will able t
 
 **Required Must-have Stories**
 
-[x] Users can create an account and sign in
-* Users can choose a topic.
+* Users can create an account and sign in COMPLETED
+* Users can choose a topic. COMPLETED
 * Users can add friends
 * Users are given a topic to draw
 
@@ -35,8 +35,8 @@ This app allows people to draw pictures in a collage format. Friends will able t
 
 * Vote button
 * Commenting
-* Super nice UI
-* Brush thickness
+* Super nice UI COMPLETED
+* Brush thickness 
 * Different types of brushes
 
 ### 2. Screen Archetypes
@@ -95,3 +95,5 @@ This app allows people to draw pictures in a collage format. Friends will able t
 
 
 https://hackmd.io/s/SkZ1P8pRo
+
+
