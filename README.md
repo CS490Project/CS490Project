@@ -13,7 +13,7 @@ This app allows people to draw pictures in a collage format. Friends will able t
 
 ### App Evaluation
 [Evaluation of your app across the following attributes]
-- **Category:**
+- **Category:** DO thisSSS
 - **Mobile:**
 - **Story:**
 - **Market:**
