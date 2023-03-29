@@ -13,12 +13,12 @@ This app allows people to draw pictures in a collage format. Friends will able t
 
 ### App Evaluation
 [Evaluation of your app across the following attributes]
-- **Category:** DO thisSSS
-- **Mobile:**
-- **Story:**
-- **Market:**
-- **Habit:**
-- **Scope:**
+- **Category:** Social Networking / ART
+- **Mobile:** On mobile devices only
+- **Story:** Asks users daily to draw a portion of a picture and share it with friends. At the end of a period it will show a collage of all drawings
+- **Market:** Any person is able to use and enjory this app.
+- **Habit:** This app is recomended to be used daily so that the collage is full.
+- **Scope:** Our scope is connecting people all around the world and showing their creativity.
 
 ## Product Spec
 
