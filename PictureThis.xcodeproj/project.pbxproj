@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA4CF06529D4A2B100636D29 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = EA4CF06429D4A2B100636D29 /* Nuke */; };
+		EA578B1329D4FB8900FDC83C /* DrawingUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA578B1229D4FB8800FDC83C /* DrawingUIViewController.swift */; };
+		EA7AB09A29CE96D300B92216 /* CollageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7AB09929CE96D300B92216 /* CollageTableViewCell.swift */; };
+		EA7AB09C29CE9B5A00B92216 /* CollageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7AB09B29CE9B5A00B92216 /* CollageTableViewController.swift */; };
+		EA7AB09E29CE9C8E00B92216 /* Collage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7AB09D29CE9C8E00B92216 /* Collage.swift */; };
 		EA8590B629B6A97A002BA6C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8590B529B6A97A002BA6C2 /* AppDelegate.swift */; };
 		EA8590B829B6A97A002BA6C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8590B729B6A97A002BA6C2 /* SceneDelegate.swift */; };
 		EA8590BA29B6A97A002BA6C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8590B929B6A97A002BA6C2 /* ViewController.swift */; };
@@ -14,13 +19,17 @@
 		EA8590BF29B6A97D002BA6C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA8590BE29B6A97D002BA6C2 /* Assets.xcassets */; };
 		EA8590C229B6A97D002BA6C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA8590C029B6A97D002BA6C2 /* LaunchScreen.storyboard */; };
 		EA8590CA29C913A8002BA6C2 /* MainTabViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA8590C929C913A8002BA6C2 /* MainTabViewStoryboard.storyboard */; };
-		EA8590CC29C917BD002BA6C2 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA8590CB29C917BD002BA6C2 /* SignUp.storyboard */; };
 		EA8590CE29C917D1002BA6C2 /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA8590CD29C917D1002BA6C2 /* Explore.storyboard */; };
 		EA8590D029C917DF002BA6C2 /* Drawing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA8590CF29C917DF002BA6C2 /* Drawing.storyboard */; };
 		EA8590D229C9180E002BA6C2 /* Collage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA8590D129C9180E002BA6C2 /* Collage.storyboard */; };
+		EACBE29829D4CDFA00C82AE0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EACBE29729D4CDFA00C82AE0 /* Profile.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA578B1229D4FB8800FDC83C /* DrawingUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawingUIViewController.swift; path = "../../../../Downloads/CS490Project-main/PictureThis/DrawingUIViewController.swift"; sourceTree = "<group>"; };
+		EA7AB09929CE96D300B92216 /* CollageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageTableViewCell.swift; sourceTree = "<group>"; };
+		EA7AB09B29CE9B5A00B92216 /* CollageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageTableViewController.swift; sourceTree = "<group>"; };
+		EA7AB09D29CE9C8E00B92216 /* Collage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collage.swift; sourceTree = "<group>"; };
 		EA8590B229B6A97A002BA6C2 /* PictureThis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PictureThis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8590B529B6A97A002BA6C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA8590B729B6A97A002BA6C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,10 +39,10 @@
 		EA8590C129B6A97D002BA6C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA8590C329B6A97D002BA6C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA8590C929C913A8002BA6C2 /* MainTabViewStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabViewStoryboard.storyboard; sourceTree = "<group>"; };
-		EA8590CB29C917BD002BA6C2 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		EA8590CD29C917D1002BA6C2 /* Explore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Explore.storyboard; sourceTree = "<group>"; };
 		EA8590CF29C917DF002BA6C2 /* Drawing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Drawing.storyboard; sourceTree = "<group>"; };
 		EA8590D129C9180E002BA6C2 /* Collage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Collage.storyboard; sourceTree = "<group>"; };
+		EACBE29729D4CDFA00C82AE0 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,12 +50,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA4CF06529D4A2B100636D29 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA4CF06629D4BB9500636D29 /* Collage */ = {
+			isa = PBXGroup;
+			children = (
+				EA8590D129C9180E002BA6C2 /* Collage.storyboard */,
+				EA7AB09929CE96D300B92216 /* CollageTableViewCell.swift */,
+				EA7AB09B29CE9B5A00B92216 /* CollageTableViewController.swift */,
+				EA7AB09D29CE9C8E00B92216 /* Collage.swift */,
+			);
+			path = Collage;
+			sourceTree = "<group>";
+		};
 		EA8590A929B6A979002BA6C2 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +87,8 @@
 		EA8590B429B6A97A002BA6C2 /* PictureThis */ = {
 			isa = PBXGroup;
 			children = (
+				EACBE29629D4CDD900C82AE0 /* Profile */,
+				EA4CF06629D4BB9500636D29 /* Collage */,
 				EA8590B529B6A97A002BA6C2 /* AppDelegate.swift */,
 				EA8590B729B6A97A002BA6C2 /* SceneDelegate.swift */,
 				EA8590B929B6A97A002BA6C2 /* ViewController.swift */,
@@ -74,12 +97,19 @@
 				EA8590C029B6A97D002BA6C2 /* LaunchScreen.storyboard */,
 				EA8590C329B6A97D002BA6C2 /* Info.plist */,
 				EA8590C929C913A8002BA6C2 /* MainTabViewStoryboard.storyboard */,
-				EA8590CB29C917BD002BA6C2 /* SignUp.storyboard */,
+				EA578B1229D4FB8800FDC83C /* DrawingUIViewController.swift */,
 				EA8590CD29C917D1002BA6C2 /* Explore.storyboard */,
 				EA8590CF29C917DF002BA6C2 /* Drawing.storyboard */,
-				EA8590D129C9180E002BA6C2 /* Collage.storyboard */,
 			);
 			path = PictureThis;
+			sourceTree = "<group>";
+		};
+		EACBE29629D4CDD900C82AE0 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				EACBE29729D4CDFA00C82AE0 /* Profile.storyboard */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +128,9 @@
 			dependencies = (
 			);
 			name = PictureThis;
+			packageProductDependencies = (
+				EA4CF06429D4A2B100636D29 /* Nuke */,
+			);
 			productName = PictureThis;
 			productReference = EA8590B229B6A97A002BA6C2 /* PictureThis.app */;
 			productType = "com.apple.product-type.application";
@@ -126,6 +159,9 @@
 				Base,
 			);
 			mainGroup = EA8590A929B6A979002BA6C2;
+			packageReferences = (
+				EA4CF06329D4A2B100636D29 /* XCRemoteSwiftPackageReference "Nuke" */,
+			);
 			productRefGroup = EA8590B329B6A97A002BA6C2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -142,12 +178,12 @@
 			files = (
 				EA8590D229C9180E002BA6C2 /* Collage.storyboard in Resources */,
 				EA8590C229B6A97D002BA6C2 /* LaunchScreen.storyboard in Resources */,
+				EACBE29829D4CDFA00C82AE0 /* Profile.storyboard in Resources */,
 				EA8590BF29B6A97D002BA6C2 /* Assets.xcassets in Resources */,
 				EA8590CA29C913A8002BA6C2 /* MainTabViewStoryboard.storyboard in Resources */,
 				EA8590BD29B6A97A002BA6C2 /* Main.storyboard in Resources */,
 				EA8590CE29C917D1002BA6C2 /* Explore.storyboard in Resources */,
 				EA8590D029C917DF002BA6C2 /* Drawing.storyboard in Resources */,
-				EA8590CC29C917BD002BA6C2 /* SignUp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,8 +195,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA8590BA29B6A97A002BA6C2 /* ViewController.swift in Sources */,
+				EA7AB09E29CE9C8E00B92216 /* Collage.swift in Sources */,
 				EA8590B629B6A97A002BA6C2 /* AppDelegate.swift in Sources */,
+				EA578B1329D4FB8900FDC83C /* DrawingUIViewController.swift in Sources */,
+				EA7AB09C29CE9B5A00B92216 /* CollageTableViewController.swift in Sources */,
 				EA8590B829B6A97A002BA6C2 /* SceneDelegate.swift in Sources */,
+				EA7AB09A29CE96D300B92216 /* CollageTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +416,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EA4CF06329D4A2B100636D29 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EA4CF06429D4A2B100636D29 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA4CF06329D4A2B100636D29 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EA8590AA29B6A97A002BA6C2 /* Project object */;
 }
