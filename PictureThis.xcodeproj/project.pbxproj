@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EA4CF06529D4A2B100636D29 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = EA4CF06429D4A2B100636D29 /* Nuke */; };
-		EA578B1329D4FB8900FDC83C /* DrawingUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA578B1229D4FB8800FDC83C /* DrawingUIViewController.swift */; };
+		EA578B1529D5F64400FDC83C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA578B1429D5F64400FDC83C /* ProfileViewController.swift */; };
+		EA578B1829D5FA3000FDC83C /* ExploreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA578B1729D5FA3000FDC83C /* ExploreTableViewController.swift */; };
 		EA7AB09A29CE96D300B92216 /* CollageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7AB09929CE96D300B92216 /* CollageTableViewCell.swift */; };
 		EA7AB09C29CE9B5A00B92216 /* CollageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7AB09B29CE9B5A00B92216 /* CollageTableViewController.swift */; };
 		EA7AB09E29CE9C8E00B92216 /* Collage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7AB09D29CE9C8E00B92216 /* Collage.swift */; };
@@ -23,10 +24,12 @@
 		EA8590D029C917DF002BA6C2 /* Drawing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA8590CF29C917DF002BA6C2 /* Drawing.storyboard */; };
 		EA8590D229C9180E002BA6C2 /* Collage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA8590D129C9180E002BA6C2 /* Collage.storyboard */; };
 		EACBE29829D4CDFA00C82AE0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EACBE29729D4CDFA00C82AE0 /* Profile.storyboard */; };
+		EADF2C6329D76F790048645A /* DrawingUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADF2C6229D76D2A0048645A /* DrawingUIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EA578B1229D4FB8800FDC83C /* DrawingUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawingUIViewController.swift; path = "../../../../Downloads/CS490Project-main/PictureThis/DrawingUIViewController.swift"; sourceTree = "<group>"; };
+		EA578B1429D5F64400FDC83C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EA578B1729D5FA3000FDC83C /* ExploreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewController.swift; sourceTree = "<group>"; };
 		EA7AB09929CE96D300B92216 /* CollageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageTableViewCell.swift; sourceTree = "<group>"; };
 		EA7AB09B29CE9B5A00B92216 /* CollageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageTableViewController.swift; sourceTree = "<group>"; };
 		EA7AB09D29CE9C8E00B92216 /* Collage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collage.swift; sourceTree = "<group>"; };
@@ -43,6 +46,7 @@
 		EA8590CF29C917DF002BA6C2 /* Drawing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Drawing.storyboard; sourceTree = "<group>"; };
 		EA8590D129C9180E002BA6C2 /* Collage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Collage.storyboard; sourceTree = "<group>"; };
 		EACBE29729D4CDFA00C82AE0 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		EADF2C6229D76D2A0048645A /* DrawingUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DrawingUIViewController.swift; path = Drawing/DrawingUIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,15 @@
 			path = Collage;
 			sourceTree = "<group>";
 		};
+		EA578B1629D5F9BD00FDC83C /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				EA8590CD29C917D1002BA6C2 /* Explore.storyboard */,
+				EA578B1729D5FA3000FDC83C /* ExploreTableViewController.swift */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
 		EA8590A929B6A979002BA6C2 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +100,7 @@
 		EA8590B429B6A97A002BA6C2 /* PictureThis */ = {
 			isa = PBXGroup;
 			children = (
+				EA578B1629D5F9BD00FDC83C /* Explore */,
 				EACBE29629D4CDD900C82AE0 /* Profile */,
 				EA4CF06629D4BB9500636D29 /* Collage */,
 				EA8590B529B6A97A002BA6C2 /* AppDelegate.swift */,
@@ -97,9 +111,8 @@
 				EA8590C029B6A97D002BA6C2 /* LaunchScreen.storyboard */,
 				EA8590C329B6A97D002BA6C2 /* Info.plist */,
 				EA8590C929C913A8002BA6C2 /* MainTabViewStoryboard.storyboard */,
-				EA578B1229D4FB8800FDC83C /* DrawingUIViewController.swift */,
-				EA8590CD29C917D1002BA6C2 /* Explore.storyboard */,
 				EA8590CF29C917DF002BA6C2 /* Drawing.storyboard */,
+				EADF2C6229D76D2A0048645A /* DrawingUIViewController.swift */,
 			);
 			path = PictureThis;
 			sourceTree = "<group>";
@@ -108,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				EACBE29729D4CDFA00C82AE0 /* Profile.storyboard */,
+				EA578B1429D5F64400FDC83C /* ProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -197,9 +211,11 @@
 				EA8590BA29B6A97A002BA6C2 /* ViewController.swift in Sources */,
 				EA7AB09E29CE9C8E00B92216 /* Collage.swift in Sources */,
 				EA8590B629B6A97A002BA6C2 /* AppDelegate.swift in Sources */,
-				EA578B1329D4FB8900FDC83C /* DrawingUIViewController.swift in Sources */,
+				EADF2C6329D76F790048645A /* DrawingUIViewController.swift in Sources */,
+				EA578B1829D5FA3000FDC83C /* ExploreTableViewController.swift in Sources */,
 				EA7AB09C29CE9B5A00B92216 /* CollageTableViewController.swift in Sources */,
 				EA8590B829B6A97A002BA6C2 /* SceneDelegate.swift in Sources */,
+				EA578B1529D5F64400FDC83C /* ProfileViewController.swift in Sources */,
 				EA7AB09A29CE96D300B92216 /* CollageTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
