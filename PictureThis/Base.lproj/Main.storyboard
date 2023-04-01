@@ -33,23 +33,29 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="PJX-5P-M8D">
                                         <rect key="frame" x="9.6666666666666856" y="159.66666666666669" width="250" height="124"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Lhr-uC-2Hf">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Lhr-uC-2Hf" userLabel="usernameLabel">
                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="6l1-3K-moT"/>
                                                     <constraint firstAttribute="width" constant="250" id="Lzw-qA-TLK"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                <connections>
+                                                    <action selector="usernameLabel:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="1zU-6i-c9p"/>
+                                                </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aJ1-eg-NEx">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aJ1-eg-NEx" userLabel="passwordLabel">
                                                 <rect key="frame" x="0.0" y="84" width="250" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="32H-bg-pCz"/>
                                                     <constraint firstAttribute="height" constant="40" id="foT-fP-WMT"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <action selector="passwordLabel:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="IRy-Lr-9g5"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -65,7 +71,8 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Log In"/>
                                                 <connections>
-                                                    <segue destination="U5Q-gN-DPq" kind="presentation" modalPresentationStyle="fullScreen" id="Orm-wf-AKE"/>
+                                                    <action selector="onSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rVG-jF-Mg8"/>
+                                                    <segue destination="U5Q-gN-DPq" kind="presentation" identifier="loginSegue" modalPresentationStyle="fullScreen" id="Orm-wf-AKE"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -102,6 +109,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="twb-SJ-t7T"/>
+                    <connections>
+                        <outlet property="passwordLabel" destination="aJ1-eg-NEx" id="QUI-nv-LGA"/>
+                        <outlet property="usernameLabel" destination="Lhr-uC-2Hf" id="eUG-Tr-GER"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -110,7 +121,7 @@
         <!--View Controller-->
         <scene sceneID="Kpk-IW-adf">
             <objects>
-                <viewController id="LOE-H0-gZX" sceneMemberID="viewController">
+                <viewController id="LOE-H0-gZX" customClass="ViewController" customModule="PictureThis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dwQ-gP-MVB">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -163,7 +174,8 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Sign up"/>
                                                 <connections>
-                                                    <segue destination="U5Q-gN-DPq" kind="show" id="frm-UM-MN0"/>
+                                                    <action selector="onSignUp:" destination="LOE-H0-gZX" eventType="touchUpInside" id="s1h-If-8ef"/>
+                                                    <segue destination="U5Q-gN-DPq" kind="show" identifier="signUpSegue" id="frm-UM-MN0"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -201,6 +213,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4Uh-dW-oiN"/>
+                    <connections>
+                        <outlet property="signUpPasswordLabel" destination="fpU-Oy-ewJ" id="3I6-MX-G4r"/>
+                        <outlet property="signUpSecondPasswordLabel" destination="fwN-oq-jNx" id="EWw-jI-37y"/>
+                        <outlet property="signUpUsernameLabel" destination="KE2-rS-sM7" id="nDk-mx-lvr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYG-W3-eNm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Bhl-Wv-RRU" userLabel="Exit" sceneMemberID="exit"/>
@@ -239,7 +256,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="frm-UM-MN0"/>
+        <segue reference="Orm-wf-AKE"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
