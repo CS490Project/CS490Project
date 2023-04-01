@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		20E7E06029D8843E001E154E /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 20E7E05F29D8843E001E154E /* AlamofireImage */; };
-		20E7E06229D8844B001E154E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20E7E06129D8844B001E154E /* GoogleService-Info.plist */; };
 		20E7E06529D884B1001E154E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 20E7E06429D884B1001E154E /* FirebaseAnalytics */; };
 		20E7E06729D884B1001E154E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 20E7E06629D884B1001E154E /* FirebaseAuth */; };
 		20E7E06929D884B1001E154E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 20E7E06829D884B1001E154E /* FirebaseFirestore */; };
@@ -32,10 +31,10 @@
 		EA8590D229C9180E002BA6C2 /* Collage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA8590D129C9180E002BA6C2 /* Collage.storyboard */; };
 		EACBE29829D4CDFA00C82AE0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EACBE29729D4CDFA00C82AE0 /* Profile.storyboard */; };
 		EADF2C6329D76F790048645A /* DrawingUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADF2C6229D76D2A0048645A /* DrawingUIViewController.swift */; };
+		EAE5C70629D8925600475EF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAE5C70529D8925400475EF2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		20E7E06129D8844B001E154E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA578B1429D5F64400FDC83C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EA578B1729D5FA3000FDC83C /* ExploreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewController.swift; sourceTree = "<group>"; };
 		EA7AB09929CE96D300B92216 /* CollageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageTableViewCell.swift; sourceTree = "<group>"; };
@@ -55,6 +54,7 @@
 		EA8590D129C9180E002BA6C2 /* Collage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Collage.storyboard; sourceTree = "<group>"; };
 		EACBE29729D4CDFA00C82AE0 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		EADF2C6229D76D2A0048645A /* DrawingUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DrawingUIViewController.swift; path = Drawing/DrawingUIViewController.swift; sourceTree = "<group>"; };
+		EAE5C70529D8925400475EF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +127,7 @@
 				EA8590C929C913A8002BA6C2 /* MainTabViewStoryboard.storyboard */,
 				EA8590CF29C917DF002BA6C2 /* Drawing.storyboard */,
 				EADF2C6229D76D2A0048645A /* DrawingUIViewController.swift */,
-				20E7E06129D8844B001E154E /* GoogleService-Info.plist */,
+				EAE5C70529D8925400475EF2 /* GoogleService-Info.plist */,
 			);
 			path = PictureThis;
 			sourceTree = "<group>";
@@ -215,11 +215,11 @@
 			files = (
 				EA8590D229C9180E002BA6C2 /* Collage.storyboard in Resources */,
 				EA8590C229B6A97D002BA6C2 /* LaunchScreen.storyboard in Resources */,
-				20E7E06229D8844B001E154E /* GoogleService-Info.plist in Resources */,
 				EACBE29829D4CDFA00C82AE0 /* Profile.storyboard in Resources */,
 				EA8590BF29B6A97D002BA6C2 /* Assets.xcassets in Resources */,
 				EA8590CA29C913A8002BA6C2 /* MainTabViewStoryboard.storyboard in Resources */,
 				EA8590BD29B6A97A002BA6C2 /* Main.storyboard in Resources */,
+				EAE5C70629D8925600475EF2 /* GoogleService-Info.plist in Resources */,
 				EA8590CE29C917D1002BA6C2 /* Explore.storyboard in Resources */,
 				EA8590D029C917DF002BA6C2 /* Drawing.storyboard in Resources */,
 			);

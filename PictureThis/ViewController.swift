@@ -26,22 +26,47 @@ class ViewController: UIViewController {
               !password.isEmpty
                 
         else {
+            let alertController = UIAlertController(title: "Alert", message: "Ensure all fields are correctly filled.", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) {
+                (action: UIAlertAction!) in
+                // Code in this block will trigger when OK button tapped.
+                print("Ok button tapped");
+            }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion: nil)
             print("username or pasword is nil!")
             return
         }
         
         Firebase.Auth.auth().signIn(withEmail: username, password: password) {
             result, error in if let e = error{
+                let alertController = UIAlertController(title: "Alert", message: "Error Logging In. Ensure all fields entered are correct.", preferredStyle: .alert)
+                let OKAction = UIAlertAction(title: "OK", style: .default) {
+                    (action: UIAlertAction!) in
+                    // Code in this block will trigger when OK button tapped.
+                    print("Ok button tapped");
+                }
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true, completion: nil)
                 print(e.localizedDescription)
                 return
                 
             }
-            guard let res = result else {
-                print("Error occured with ligging in ")
+            guard let res = result
+            else {
+                let alertController = UIAlertController(title: "Alert", message: "Error Logging In. Ensure all fields entered are correct.", preferredStyle: .alert)
+                let OKAction = UIAlertAction(title: "OK", style: .default) {
+                    (action: UIAlertAction!) in
+                    // Code in this block will trigger when OK button tapped.
+                    print("Ok button tapped");
+                }
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true, completion: nil)
+                print("Error occured with logging in ")
                 return
             }
             print("Signed in as \(res.user.email)")
-            self.performSegue(withIdentifier: "loginSeque", sender: nil)
+            self.performSegue(withIdentifier: "loginSegue", sender: nil)
         }
     }
     // sign up
@@ -56,19 +81,46 @@ class ViewController: UIViewController {
     
     @IBAction func onSignUp(_ sender: Any) {
         guard let username = signUpUsernameLabel.text,
-              let password = signUpPasswordLabel.text else {
+              let password = signUpPasswordLabel.text,
+              !username.isEmpty,
+              !password.isEmpty else {
+            let alertController = UIAlertController(title: "Alert", message: "Ensure all fields are correctly filled.", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) {
+                (action: UIAlertAction!) in
+                // Code in this block will trigger when OK button tapped.
+                print("Ok button tapped");
+            }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion: nil)
             print("username or pasword is nil!")
             return
         }
         
         Firebase.Auth.auth().createUser(withEmail: username, password: password) {
             result, error in if let e = error{
+                let alertController = UIAlertController(title: "Alert", message: "Error Signing Up. Ensure all fields entered are correct.", preferredStyle: .alert)
+                let OKAction = UIAlertAction(title: "OK", style: .default) {
+                    (action: UIAlertAction!) in
+                    // Code in this block will trigger when OK button tapped.
+                    print("Ok button tapped");
+                }
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true, completion: nil)
+                print("Error occured with signing up")
                 print(e.localizedDescription)
                 return
                 
             }
             guard let res = result else {
-                print("Error occured with ligging in ")
+                let alertController = UIAlertController(title: "Alert", message: "Error Signing Up. Ensure all fields entered are correct.", preferredStyle: .alert)
+                let OKAction = UIAlertAction(title: "OK", style: .default) {
+                    (action: UIAlertAction!) in
+                    // Code in this block will trigger when OK button tapped.
+                    print("Ok button tapped");
+                }
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true, completion: nil)
+                print("Error occured with signing up")
                 return
             }
             print("Signed in as \(res.user.email)")

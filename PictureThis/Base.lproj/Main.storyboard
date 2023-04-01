@@ -41,9 +41,6 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                                                <connections>
-                                                    <action selector="usernameLabel:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="1zU-6i-c9p"/>
-                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aJ1-eg-NEx" userLabel="passwordLabel">
                                                 <rect key="frame" x="0.0" y="84" width="250" height="40"/>
@@ -53,9 +50,6 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
-                                                <connections>
-                                                    <action selector="passwordLabel:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="IRy-Lr-9g5"/>
-                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -72,7 +66,6 @@
                                                 <buttonConfiguration key="configuration" style="filled" title="Log In"/>
                                                 <connections>
                                                     <action selector="onSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rVG-jF-Mg8"/>
-                                                    <segue destination="U5Q-gN-DPq" kind="presentation" identifier="loginSegue" modalPresentationStyle="fullScreen" id="Orm-wf-AKE"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -112,6 +105,7 @@
                     <connections>
                         <outlet property="passwordLabel" destination="aJ1-eg-NEx" id="QUI-nv-LGA"/>
                         <outlet property="usernameLabel" destination="Lhr-uC-2Hf" id="eUG-Tr-GER"/>
+                        <segue destination="U5Q-gN-DPq" kind="presentation" identifier="loginSegue" modalPresentationStyle="fullScreen" id="amH-kq-4Ad"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -175,7 +169,6 @@
                                                 <buttonConfiguration key="configuration" style="filled" title="Sign up"/>
                                                 <connections>
                                                     <action selector="onSignUp:" destination="LOE-H0-gZX" eventType="touchUpInside" id="s1h-If-8ef"/>
-                                                    <segue destination="U5Q-gN-DPq" kind="show" identifier="signUpSegue" id="frm-UM-MN0"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -217,6 +210,7 @@
                         <outlet property="signUpPasswordLabel" destination="fpU-Oy-ewJ" id="3I6-MX-G4r"/>
                         <outlet property="signUpSecondPasswordLabel" destination="fwN-oq-jNx" id="EWw-jI-37y"/>
                         <outlet property="signUpUsernameLabel" destination="KE2-rS-sM7" id="nDk-mx-lvr"/>
+                        <segue destination="U5Q-gN-DPq" kind="presentation" identifier="signUpSegue" modalPresentationStyle="fullScreen" id="aH3-ku-7q9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYG-W3-eNm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -256,7 +250,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Orm-wf-AKE"/>
+        <segue reference="aH3-ku-7q9"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
