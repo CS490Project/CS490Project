@@ -7,16 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main-->
-        <scene sceneID="Mbs-c0-rl5">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="AOt-QW-c8M" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Rk8-vt-Gnk"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fo4-Ks-RE3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3503" y="-2"/>
-        </scene>
         <!--Collage Table View Controller-->
         <scene sceneID="Uu7-Xd-Y9u">
             <objects>
@@ -25,18 +15,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <button key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="0F5-no-Lec">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Logout"/>
-                            <connections>
-                                <segue destination="AOt-QW-c8M" kind="presentation" modalPresentationStyle="fullScreen" id="Cl4-wJ-dm3"/>
-                            </connections>
-                        </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CollageTableViewCell" rowHeight="273" id="y1N-0T-ZVm" customClass="CollageTableViewCell" customModule="PictureThis" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="94" width="393" height="273"/>
+                                <rect key="frame" x="0.0" y="50" width="393" height="273"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y1N-0T-ZVm" id="wJE-zW-N4J">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="273"/>
@@ -74,7 +55,9 @@
                             <outlet property="delegate" destination="ZfV-Rh-Hgb" id="0iM-oS-QSi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="gCs-wP-CaS"/>
+                    <navigationItem key="navigationItem" id="gCs-wP-CaS">
+                        <barButtonItem key="backBarButtonItem" title="Logout" id="D6P-f7-YLv"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="X4Y-mY-3x1" id="BHd-Uc-DQK"/>
                     </connections>

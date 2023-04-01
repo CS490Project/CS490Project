@@ -1,18 +1,14 @@
 //
-//  CollageTableViewController.swift
+//  ExploreTableViewController.swift
 //  PictureThis
 //
-//  Created by Harjyot Badh on 3/24/23.
+//  Created by Harjyot Badh on 3/30/23.
 //
 
 import UIKit
-import Nuke
 
+class ExploreTableViewController: UITableViewController {
 
-
-class CollageTableViewController: UITableViewController {
-    
-    
     // Your data source, an array of Collage objects
     var collages: [Collage] = []
 
@@ -28,12 +24,7 @@ class CollageTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 5
-//    }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return collages.count
@@ -61,17 +52,8 @@ class CollageTableViewController: UITableViewController {
     
     func loadCollages() {
         // Load your collages data here and populate the collages array
-        var tempCollages: [Collage] = []
-        tempCollages = Collage.AnotherThing
-        
-        // Remoe all collages that are not the user's name. (in this case "Harjyot Badh")
-        for collage in tempCollages {
-            if (collage.name == "Harjyot Badh") {
-                //@TODO: Change the ^ string to the actual user.name variable.
-                // Add to collages.
-                collages.append(collage)
-            }
-        }
+        // @TODO: Have all of the user's friends (or just all) collage appear here, by date.
+        collages = Collage.AnotherThing
     }
 
     /*

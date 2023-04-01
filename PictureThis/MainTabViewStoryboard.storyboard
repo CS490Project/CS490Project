@@ -18,17 +18,18 @@
                     <connections>
                         <segue destination="4K7-lD-kaB" kind="relationship" relationship="viewControllers" id="1MZ-0x-8OT"/>
                         <segue destination="y8v-w3-hWX" kind="relationship" relationship="viewControllers" id="suL-jc-R4G"/>
+                        <segue destination="VWf-2a-IiW" kind="relationship" relationship="viewControllers" id="2vV-Fx-8ZM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kU-bV-NZe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1457" y="-79"/>
         </scene>
-        <!--Item-->
+        <!--Explore-->
         <scene sceneID="QjE-Hd-TXw">
             <objects>
                 <navigationController id="4K7-lD-kaB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="3wm-Jo-kgn"/>
+                    <tabBarItem key="tabBarItem" title="Explore" image="list.dash" catalog="system" selectedImage="list.dash" id="3wm-Jo-kgn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tR2-Ey-GT4">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -39,7 +40,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="61U-Iq-UO2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-349" y="-427"/>
+            <point key="canvasLocation" x="-347" y="-826"/>
         </scene>
         <!--Explore-->
         <scene sceneID="QY4-4t-zqb">
@@ -49,13 +50,13 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Q1-Ti-RAE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="892" y="-475"/>
+            <point key="canvasLocation" x="808" y="-826"/>
         </scene>
-        <!--Item-->
+        <!--Collage-->
         <scene sceneID="UW1-w4-Rk7">
             <objects>
                 <navigationController id="y8v-w3-hWX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="tHb-3Y-qgF"/>
+                    <tabBarItem key="tabBarItem" title="Collage" image="folder" catalog="system" selectedImage="folder" id="tHb-3Y-qgF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uKF-W1-280">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -66,7 +67,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rzu-XB-Laj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-320" y="320"/>
+            <point key="canvasLocation" x="-318" y="-80"/>
         </scene>
         <!--Collage-->
         <scene sceneID="0FQ-Qk-1Nh">
@@ -76,7 +77,39 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PjE-yQ-0hX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="740" y="246"/>
+            <point key="canvasLocation" x="756" y="-80"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="Jp1-4U-C28">
+            <objects>
+                <navigationController id="VWf-2a-IiW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" selectedImage="person" id="BzF-bS-eyg"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wGR-xX-bzs">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="OuN-t6-gla" kind="relationship" relationship="rootViewController" id="Hb8-M6-seL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PDL-bb-Pvn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-318" y="737"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="R1Q-PG-RFE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="OuN-t6-gla" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="EHc-An-VXt"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HT7-jq-juc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="756" y="737"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="folder" catalog="system" width="128" height="96"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="person" catalog="system" width="128" height="121"/>
+    </resources>
 </document>

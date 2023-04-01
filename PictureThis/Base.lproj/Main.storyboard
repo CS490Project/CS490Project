@@ -84,9 +84,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up!"/>
                                                 <connections>
-                                                    <segue destination="LOE-H0-gZX" kind="popoverPresentation" popoverAnchorView="e4m-pP-J0e" id="BRW-Ld-AqL">
-                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                    </segue>
+                                                    <segue destination="LOE-H0-gZX" kind="show" id="BRW-Ld-AqL"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -114,7 +112,7 @@
             <objects>
                 <viewController id="LOE-H0-gZX" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dwQ-gP-MVB">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="82" translatesAutoresizingMaskIntoConstraints="NO" id="5gu-OJ-Xte">
@@ -164,6 +162,9 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Sign up"/>
+                                                <connections>
+                                                    <segue destination="U5Q-gN-DPq" kind="show" id="frm-UM-MN0"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -172,6 +173,24 @@
                                     <constraint firstAttribute="trailing" secondItem="Tyn-hZ-fIy" secondAttribute="trailing" constant="25" id="fWg-Ch-SfQ"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MM0-cx-GeK">
+                                <rect key="frame" x="16" y="77" width="74" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="&lt; Back">
+                                            <attributes>
+                                                <font key="NSFont" size="16" name="Helvetica"/>
+                                                <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="Bhl-Wv-RRU" kind="unwind" unwindAction="myUnwindActionWithUnwindSegue:" id="jjX-Ty-nAO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kyd-8W-h1R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -184,6 +203,7 @@
                     <navigationItem key="navigationItem" id="4Uh-dW-oiN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYG-W3-eNm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Bhl-Wv-RRU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2173.2824427480914" y="3.5211267605633805"/>
         </scene>
@@ -215,9 +235,12 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GhE-tL-RYH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="931" y="718"/>
+            <point key="canvasLocation" x="1569" y="748"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="frm-UM-MN0"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

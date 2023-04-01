@@ -8,6 +8,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue) {
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,4 +20,3 @@ class ViewController: UIViewController {
 
 
 }
-
