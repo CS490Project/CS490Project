@@ -12,6 +12,16 @@ import FirebaseAuth
 class ViewController: UIViewController {
     
     @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue) {
+        // @TODO: Add signout stuff here
+        
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
+        
+        print("Sign out success")
         
     }
 
@@ -44,7 +54,7 @@ class ViewController: UIViewController {
                 let OKAction = UIAlertAction(title: "OK", style: .default) {
                     (action: UIAlertAction!) in
                     // Code in this block will trigger when OK button tapped.
-                    print("Ok button tapped");
+                    
                 }
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true, completion: nil)
@@ -58,7 +68,7 @@ class ViewController: UIViewController {
                 let OKAction = UIAlertAction(title: "OK", style: .default) {
                     (action: UIAlertAction!) in
                     // Code in this block will trigger when OK button tapped.
-                    print("Ok button tapped");
+                    
                 }
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true, completion: nil)
@@ -67,9 +77,16 @@ class ViewController: UIViewController {
             }
             print("Signed in as \(res.user.email)")
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            
+            // Clear the fields on login success.
+            self.usernameLabel.text = ""
+            self.passwordLabel.text = ""
         }
     }
-    // sign up
+    
+    
+    // Sign Up ==================
+
     
     
     @IBOutlet weak var signUpUsernameLabel: UITextField!
@@ -95,6 +112,19 @@ class ViewController: UIViewController {
             print("username or pasword is nil!")
             return
         }
+        // Check if both passwords are equal
+        if (signUpPasswordLabel.text != signUpSecondPasswordLabel.text) {
+            let alertController = UIAlertController(title: "Alert", message: "Ensure that passwords match!", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) {
+                (action: UIAlertAction!) in
+                // Code in this block will trigger when OK button tapped.
+                print("Ok button tapped");
+            }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion: nil)
+            print("passwords do not match!")
+            return
+        }
         
         Firebase.Auth.auth().createUser(withEmail: username, password: password) {
             result, error in if let e = error{
@@ -102,7 +132,7 @@ class ViewController: UIViewController {
                 let OKAction = UIAlertAction(title: "OK", style: .default) {
                     (action: UIAlertAction!) in
                     // Code in this block will trigger when OK button tapped.
-                    print("Ok button tapped");
+                    
                 }
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true, completion: nil)
@@ -116,7 +146,7 @@ class ViewController: UIViewController {
                 let OKAction = UIAlertAction(title: "OK", style: .default) {
                     (action: UIAlertAction!) in
                     // Code in this block will trigger when OK button tapped.
-                    print("Ok button tapped");
+                    
                 }
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true, completion: nil)
@@ -125,6 +155,10 @@ class ViewController: UIViewController {
             }
             print("Signed in as \(res.user.email)")
             self.performSegue(withIdentifier: "signUpSegue", sender: nil)
+            
+            self.signUpUsernameLabel.text = ""
+            self.signUpPasswordLabel.text = ""
+            self.signUpSecondPasswordLabel.text = ""
         }
     }
     
