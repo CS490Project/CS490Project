@@ -57,10 +57,20 @@ class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
     }
  
  
- 
+ // This function is the saving button
     @IBAction func saveImage(_ sender: Any) {
+        UIGraphicsBeginImageContextWithOptions(canvasView.bounds.size, false, UIScreen.main.scale)
         
+        canvasView.drawHierarchy(in: canvasView.bounds, afterScreenUpdates: true)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        if image != nil {
+            
+        }
     }
+    /// Should be saved under image
     
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
         updateContentSizeForDrawing()
