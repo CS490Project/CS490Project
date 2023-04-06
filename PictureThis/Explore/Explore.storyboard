@@ -37,7 +37,7 @@
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
                                     <connections>
-                                        <segue destination="Gvd-NH-VLB" kind="show" id="ysw-j8-ukB"/>
+                                        <segue destination="Gvd-NH-VLB" kind="presentation" modalPresentationStyle="fullScreen" id="ysw-j8-ukB"/>
                                     </connections>
                                 </button>
                             </subviews>

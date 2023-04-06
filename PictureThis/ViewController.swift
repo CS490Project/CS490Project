@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 
 class ViewController: UIViewController {
     
@@ -36,6 +37,7 @@ class ViewController: UIViewController {
               !password.isEmpty
                 
         else {
+            // Alert for unfilled fields.
             let alertController = UIAlertController(title: "Alert", message: "Ensure all fields are correctly filled.", preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "OK", style: .default) {
                 (action: UIAlertAction!) in
@@ -96,11 +98,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var signUpSecondPasswordLabel: UITextField!
     
     
+    @IBOutlet weak var nameField: UITextField!
+    
+    
     @IBAction func onSignUp(_ sender: Any) {
         guard let username = signUpUsernameLabel.text,
               let password = signUpPasswordLabel.text,
+              let password2 = signUpSecondPasswordLabel.text,
+              let name = nameField.text,
               !username.isEmpty,
-              !password.isEmpty else {
+              !password.isEmpty,
+              !password2.isEmpty,
+              !name.isEmpty
+        else {
+            // Alert for if all fields are not filled.
             let alertController = UIAlertController(title: "Alert", message: "Ensure all fields are correctly filled.", preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "OK", style: .default) {
                 (action: UIAlertAction!) in
@@ -112,6 +123,7 @@ class ViewController: UIViewController {
             print("username or pasword is nil!")
             return
         }
+        
         // Check if both passwords are equal
         if (signUpPasswordLabel.text != signUpSecondPasswordLabel.text) {
             let alertController = UIAlertController(title: "Alert", message: "Ensure that passwords match!", preferredStyle: .alert)
@@ -153,7 +165,24 @@ class ViewController: UIViewController {
                 print("Error occured with signing up")
                 return
             }
-            print("Signed in as \(res.user.email)")
+            
+            let db = Firestore.firestore()
+            
+            let userID = Auth.auth().currentUser!.uid
+        
+            
+            // Add a new document in collection "users"
+            db.collection("users").document(userID).setData([
+                "name": self.nameField.text!,
+                "profilePicURL": "null",
+                "userID" : userID
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
             self.performSegue(withIdentifier: "signUpSegue", sender: nil)
             
             self.signUpUsernameLabel.text = ""

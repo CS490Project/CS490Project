@@ -196,6 +196,12 @@
                                     <segue destination="Bhl-Wv-RRU" kind="unwind" unwindAction="myUnwindActionWithUnwindSegue:" id="jjX-Ty-nAO"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XR3-6w-zHt">
+                                <rect key="frame" x="77" y="625" width="242" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kyd-8W-h1R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -207,6 +213,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="4Uh-dW-oiN"/>
                     <connections>
+                        <outlet property="nameField" destination="XR3-6w-zHt" id="nWn-lU-OYU"/>
                         <outlet property="signUpPasswordLabel" destination="fpU-Oy-ewJ" id="3I6-MX-G4r"/>
                         <outlet property="signUpSecondPasswordLabel" destination="fwN-oq-jNx" id="EWw-jI-37y"/>
                         <outlet property="signUpUsernameLabel" destination="KE2-rS-sM7" id="nDk-mx-lvr"/>

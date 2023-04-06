@@ -7,16 +7,21 @@
  
 import UIKit
 import PencilKit
- 
+import Firebase
+import FirebaseAuth
+import FirebaseStorage
+
 class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
  
  
  
  
     @IBOutlet weak var canvasView: PKCanvasView!
+    
+    var toolPicker: PKToolPicker!
  
-    let CanvasWidth: CGFloat = 768
-    let CanvasOverscrollHeight: CGFloat = 500
+    let CanvasWidth: CGFloat = 0
+    let CanvasOverscrollHeight: CGFloat = 100
  
     var drawing = PKDrawing()
  
@@ -26,15 +31,28 @@ class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
         canvasView.drawing = drawing
  
         canvasView.alwaysBounceVertical = true
-        canvasView.allowsFingerDrawing = true
- 
-        if let window = parent?.view.window,
-        let toolPicker = PKToolPicker.shared(for: window) {
-            toolPicker.setVisible(true, forFirstResponder: canvasView)
-            toolPicker.addObserver(canvasView)
- 
-            canvasView.becomeFirstResponder()
+//        canvasView.allowsFingerDrawing = true
+        // Set up the tool picker
+        if #available(iOS 14.0, *) {
+            toolPicker = PKToolPicker()
+            
+        } else {
+            // Set up the tool picker, using the window of our parent because our view has not
+            // been added to a window yet.
+            
+            let window = parent?.view.window
+            toolPicker = PKToolPicker.shared(for: window!)
+            
         }
+        
+ 
+        toolPicker.setVisible(true, forFirstResponder: canvasView)
+        toolPicker.addObserver(canvasView)
+        toolPicker.addObserver(self)
+//        updateLayout(for: toolPicker)
+        canvasView.becomeFirstResponder()
+        
+    
  
         // Do any additional setup after loading the view.
     }
@@ -66,9 +84,32 @@ class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        if image != nil {
+        if (image != nil) {
+            let storageRef = Storage.storage().reference()
+            let imageData = image!.jpegData(compressionQuality: 0.3)
             
+            guard imageData != nil else {
+                print("error in saving image")
+                return
+            }
+            
+            let userID = Auth.auth().currentUser!.uid
+            
+            let fileRef = storageRef.child("images/\(userID)/\(UUID().uuidString).jpg")
+            
+            let uploadTask = fileRef.putData(imageData!, metadata: nil) { metadata, error in
+                
+                // Check for errors
+                if error ==  nil && metadata != nil {
+                    // @TODO: Save a reference to the file in Firestone DB.
+                }
+            }
+            
+        } else {
+            print("Image is null")
         }
+        
+        self.performSegue(withIdentifier: "saveSegue", sender: nil)
     }
     /// Should be saved under image
     

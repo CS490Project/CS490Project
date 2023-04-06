@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
 class ProfileViewController: UIViewController {
     
     
     @IBOutlet weak var profileImage: UIImageView!
+    
+    
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +27,27 @@ class ProfileViewController: UIViewController {
         profileImage.layer.borderColor = UIColor.black.cgColor
         profileImage.layer.cornerRadius = profileImage.frame.height/2
         profileImage.clipsToBounds = true
+        
+        let db = Firestore.firestore()
+        let userID = Auth.auth().currentUser!.uid
+
+        let docRef = db.collection("users").document(userID)
+
+        docRef.getDocument { (document, error) in
+            guard error == nil else {
+                print("error", error ?? "")
+                return
+            }
+            
+            if let document = document, document.exists {
+                let data = document.data()
+                if let data = data {
+                    print("data", data)
+                    self.nameLabel.text = data["name"] as? String ?? ""
+                }
+            }
+        }
+    
         
         // @TODO: Have the user set their own profile picture, by clicking the image.
         
