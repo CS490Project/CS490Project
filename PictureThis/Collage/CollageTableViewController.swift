@@ -25,6 +25,10 @@ class CollageTableViewController: UITableViewController {
 
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadCollages()
+    }
 
     // MARK: - Table view data source
 
