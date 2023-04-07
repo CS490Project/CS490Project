@@ -19,6 +19,8 @@ class ExploreTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collages = []
+        
 
         // TODO: Pt 1 - Set tracks property with mock tracks array
         loadCollages()

@@ -11,12 +11,18 @@ import Firebase
 import FirebaseAuth
 import FirebaseStorage
 
+protocol DrawingViewControllerDelegate: AnyObject {
+    func didSaveNewImage()
+}
+
 class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
  
  
  
  
     @IBOutlet weak var canvasView: PKCanvasView!
+    
+    weak var delegate: DrawingViewControllerDelegate?
     
     var toolPicker: PKToolPicker!
  
@@ -101,7 +107,7 @@ class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
                 
                 // Check for errors
                 if error ==  nil && metadata != nil {
-                    // @TODO: Save a reference to the file in Firestone DB.
+                    self.delegate?.didSaveNewImage()
                 }
             }
             

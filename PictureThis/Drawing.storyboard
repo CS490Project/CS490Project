@@ -66,15 +66,15 @@
             </objects>
             <point key="canvasLocation" x="3660" y="144"/>
         </scene>
-        <!--Explore-->
+        <!--MainTabViewStoryboard-->
         <scene sceneID="32C-VU-QaW">
             <objects>
-                <viewControllerPlaceholder storyboardName="Explore" id="KM9-vt-7dK" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="MainTabViewStoryboard" id="KM9-vt-7dK" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Lz3-jE-BFW"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9q-R9-7pf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3660" y="-166"/>
+            <point key="canvasLocation" x="3659" y="-170"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HYs-sw-BqU">

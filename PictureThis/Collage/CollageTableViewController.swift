@@ -62,6 +62,9 @@ class CollageTableViewController: UITableViewController {
         return cell
     }
     
+    
+
+    
     func loadCollages() {
         let uid = Auth.auth().currentUser!.uid
         let storageRef = Storage.storage().reference()
@@ -94,12 +97,15 @@ class CollageTableViewController: UITableViewController {
                     }
                 }
 
+                self.collages.reverse()
                 group.notify(queue: .main) {
                     self.tableView.reloadData()
                 }
             }
         }
     }
+
+
 
 
     /*
