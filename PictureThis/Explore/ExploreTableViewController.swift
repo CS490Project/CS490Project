@@ -16,18 +16,16 @@ class ExploreTableViewController: UITableViewController {
     // Your data source, an array of Collage objects
     var collages: [Collage] = []
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        collages = []
-        
-
-        // TODO: Pt 1 - Set tracks property with mock tracks array
-        loadCollages()
-        
-
-        
-    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//
+//        // TODO: Pt 1 - Set tracks property with mock tracks array
+//        loadCollages()
+//
+//
+//
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         loadCollages()

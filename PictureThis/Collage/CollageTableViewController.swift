@@ -17,14 +17,14 @@ class CollageTableViewController: UITableViewController {
     // Your data source, an array of Collage objects
     var collages: [Collage] = []
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        loadCollages()
-        
-
-        
-    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        loadCollages()
+//
+//
+//
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         loadCollages()
