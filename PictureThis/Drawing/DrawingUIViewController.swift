@@ -47,10 +47,11 @@ class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
         "Watermelon",
         "Pizza",
         "Hamburger",
-        "Ice Cream Cone",
+        "Ice Cream",
         "Cupcake"
     ]
- 
+    // variable store
+    var dayOfMonth: Int = -1
     
     @IBOutlet weak var Promt: UIButton!
     
@@ -94,12 +95,16 @@ class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
         
         print("*************************")
         let today = Date()  // Get the current date
-        let dayOfMonth = Calendar.current.component(.day, from: today)  // Get the day of the month
+        dayOfMonth = Calendar.current.component(.day, from: today)
+        dayOfMonth -= 1
+        // Get the day of the month
         print(dayOfMonth)  // Print the day of the month
 
         //new 
         // adding the prompt
-        Promt.setTitle("Draw " + easyThingsToDraw[dayOfMonth-1], for: .normal)
+        Promt.setTitle("Draw " + easyThingsToDraw[dayOfMonth], for: .normal)
+        
+        
         // Do any additional setup after loading the view.
     }
  
@@ -134,6 +139,8 @@ class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
             let storageRef = Storage.storage().reference()
             let imageData = image!.jpegData(compressionQuality: 0.3)
             
+            
+            
             guard imageData != nil else {
                 print("error in saving image")
                 return
@@ -143,7 +150,15 @@ class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
             
             let fileRef = storageRef.child("images/\(userID)/\(UUID().uuidString).jpg")
             
-            let uploadTask = fileRef.putData(imageData!, metadata: nil) { metadata, error in
+            
+            let metadata = StorageMetadata()
+                    metadata.contentType = "image/jpeg"
+                    metadata.customMetadata = [
+                        "description": easyThingsToDraw[dayOfMonth],
+                        "date": Date().description
+                    ]
+            
+            let uploadTask = fileRef.putData(imageData!, metadata: metadata) { metadata, error in
                 
                 // Check for errors
                 if error ==  nil && metadata != nil {
