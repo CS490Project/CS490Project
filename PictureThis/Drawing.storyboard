@@ -58,10 +58,10 @@
             </objects>
             <point key="canvasLocation" x="2837.4045801526718" y="-2.1126760563380285"/>
         </scene>
-        <!--Explore-->
+        <!--MainTabViewStoryboard-->
         <scene sceneID="uuu-ug-esU">
             <objects>
-                <viewControllerPlaceholder storyboardName="Explore" id="HMU-Jz-2VV" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="MainTabViewStoryboard" id="HMU-Jz-2VV" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXG-Ab-ZOE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3660" y="144"/>

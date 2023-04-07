@@ -8,10 +8,11 @@
 import UIKit
 
 class ExploreTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var exploreImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
-    
     @IBOutlet weak var title: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,7 +28,6 @@ class ExploreTableViewCell: UITableViewCell {
         title.text = collage.title
         userName.text = collage.name
         exploreImage.image = collage.artworkUrl100
-        // Load image async via Nuke library image loading helper method
-//        Nuke.loadImage(with: collage.artworkUrl100, into: collageImage)
+
     }
 }

@@ -44,7 +44,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CollageTableViewCell" rowHeight="273" id="NPt-M2-3ed" customClass="ExploreTableViewCell" customModule="PictureThis" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExploreTableViewCell" rowHeight="273" id="NPt-M2-3ed" customClass="ExploreTableViewCell" customModule="PictureThis" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="94" width="393" height="273"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NPt-M2-3ed" id="6Ql-eX-DJQ">
@@ -72,11 +72,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="collageImage" destination="bvg-5G-mbp" id="zbX-bB-TU9"/>
                                     <outlet property="exploreImage" destination="bvg-5G-mbp" id="YTU-ib-dhE"/>
-                                    <outlet property="nameLabel" destination="0am-ha-XHt" id="Q7k-mY-pGm"/>
                                     <outlet property="title" destination="4so-wc-Ir9" id="dR3-US-jaH"/>
-                                    <outlet property="titleLabel" destination="4so-wc-Ir9" id="fNH-rL-tuC"/>
                                     <outlet property="userName" destination="0am-ha-XHt" id="Kgy-uQ-rnK"/>
                                 </connections>
                             </tableViewCell>
@@ -137,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vR-LE-l4o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2109" y="737"/>
+            <point key="canvasLocation" x="2054" y="738"/>
         </scene>
         <!--Drawing-->
         <scene sceneID="5SK-vz-1wB">

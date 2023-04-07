@@ -55,9 +55,6 @@ class ExploreTableViewController: UITableViewController {
     }
     
     func loadCollages() {
-        // Load your collages data here and populate the collages array
-        // @TODO: Have all of the user's friends (or just all) collage appear here, by date.
-//        collages = Collage.AnotherThing
         let db = Firestore.firestore()
         let currentUser = Auth.auth().currentUser?.uid
         db.collection("users").document(currentUser!).getDocument { (userDocument, err) in
@@ -66,11 +63,11 @@ class ExploreTableViewController: UITableViewController {
             } else {
                 guard let userDoc = userDocument, let friendsList = userDoc["friends"] as? [String] else {return}
                 
-                
-                
                 let storageRef = Storage.storage().reference()
-                var tempImageArr: [UIImage] = []
+                let group = DispatchGroup()
+                
                 for id in friendsList {
+                    group.enter()
                     let folderRef = storageRef.child("images/\(id)")
                     folderRef.listAll { (result, error) in
                         if let error = error {
@@ -78,47 +75,31 @@ class ExploreTableViewController: UITableViewController {
                         }
                         
                         for item in result!.items {
+                            group.enter()
                             let fileRef = item
                             
                             fileRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
                                 if let error = error {
                                     print(error)
                                 } else {
-                                    let image = UIImage(data: data!)
-                                    
-//                                    tempImageArr.append(image!)
-                                    self.collages.append(Collage(title: "Test", name: "Test", artworkUrl100: image!))
-                                    print(self.collages[0])
-                                    
+                                    if let imageData = data, let image = UIImage(data: imageData) {
+                                        self.collages.append(Collage(title: "Test", name: "Test", artworkUrl100: image))
+                                    }
                                 }
-                                
-                                
+                                group.leave()
                             }
-                            
-                            
                         }
-                        
-                        
+                        group.leave()
                     }
-//                    tempImageArr.shuffle()
-//                    print(tempImageArr.count)
-                    
-//                    for i in tempImageArr {
-//
-//                    }
                 }
                 
-                
-                
-                
+                group.notify(queue: .main) {
+                    self.tableView.reloadData()
+                }
             }
-            
-            
-            
-            
         }
-        
     }
+
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

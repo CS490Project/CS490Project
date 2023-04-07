@@ -97,7 +97,7 @@ class FriendViewController: UIViewController {
                                 guard let userDoc = userDocument, let friendsList = userDoc["friends"] as? [String] else { return }
                                 
                                 if friendsList.contains(friendId) {
-                                    // Alert for if users are trying to add themselves.
+                                    // Alert for if users are trying to add an already added friend.
                                     let alertController = UIAlertController(title: "Alert", message: "This friend has already been added.", preferredStyle: .alert)
                                     let OKAction = UIAlertAction(title: "OK", style: .default) {
                                         (action: UIAlertAction!) in
