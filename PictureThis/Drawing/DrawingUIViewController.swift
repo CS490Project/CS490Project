@@ -47,9 +47,10 @@ class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
         "Watermelon",
         "Pizza",
         "Hamburger",
-        "Ice Cream Cone",
+        "Ice Cream",
         "Cupcake"
     ]
+    
  
     
     @IBOutlet weak var Promt: UIButton!

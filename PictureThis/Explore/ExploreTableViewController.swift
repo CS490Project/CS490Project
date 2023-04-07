@@ -61,6 +61,9 @@ class ExploreTableViewController: UITableViewController {
     func loadCollages() {
         let db = Firestore.firestore()
         let currentUser = Auth.auth().currentUser?.uid
+        if (currentUser == nil) {
+            return
+        }
         db.collection("users").document(currentUser!).getDocument { (userDocument, err) in
             if let err = err {
                 print("Error getting user's friends: \(err)")
