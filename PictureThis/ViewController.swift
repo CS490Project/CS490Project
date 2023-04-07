@@ -173,7 +173,7 @@ class ViewController: UIViewController {
             
             // Add a new document in collection "users"
             db.collection("users").document(userID).setData([
-                "name": self.nameField.text!,
+                "name": self.nameField.text!.uppercased(),
                 "profilePicURL": "null",
                 "userID" : userID
             ]) { err in

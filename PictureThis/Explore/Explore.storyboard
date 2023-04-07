@@ -94,10 +94,10 @@
             </objects>
             <point key="canvasLocation" x="2054.1984732824426" y="-2.1126760563380285"/>
         </scene>
-        <!--View Controller-->
+        <!--Friend View Controller-->
         <scene sceneID="x2I-e5-Kvt">
             <objects>
-                <viewController id="WBz-h3-RPY" sceneMemberID="viewController">
+                <viewController id="WBz-h3-RPY" customClass="FriendViewController" customModule="PictureThis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mfl-kO-OFc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,11 +120,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add"/>
+                                <connections>
+                                    <action selector="addButton:" destination="WBz-h3-RPY" eventType="touchUpInside" id="DMz-eH-IhQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EVl-vY-ujd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="usernameField" destination="8XX-7Z-yJ6" id="YPZ-Ds-B0e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vR-LE-l4o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

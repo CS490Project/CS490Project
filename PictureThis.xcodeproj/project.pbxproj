@@ -16,6 +16,7 @@
 		EA4CF06529D4A2B100636D29 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = EA4CF06429D4A2B100636D29 /* Nuke */; };
 		EA578B1529D5F64400FDC83C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA578B1429D5F64400FDC83C /* ProfileViewController.swift */; };
 		EA578B1829D5FA3000FDC83C /* ExploreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA578B1729D5FA3000FDC83C /* ExploreTableViewController.swift */; };
+		EA678B4329DF2FAE008F1336 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA678B4229DF2FAE008F1336 /* FriendViewController.swift */; };
 		EA7AB09A29CE96D300B92216 /* CollageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7AB09929CE96D300B92216 /* CollageTableViewCell.swift */; };
 		EA7AB09C29CE9B5A00B92216 /* CollageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7AB09B29CE9B5A00B92216 /* CollageTableViewController.swift */; };
 		EA7AB09E29CE9C8E00B92216 /* Collage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7AB09D29CE9C8E00B92216 /* Collage.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		EA578B1429D5F64400FDC83C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EA578B1729D5FA3000FDC83C /* ExploreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewController.swift; sourceTree = "<group>"; };
+		EA678B4229DF2FAE008F1336 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
 		EA7AB09929CE96D300B92216 /* CollageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageTableViewCell.swift; sourceTree = "<group>"; };
 		EA7AB09B29CE9B5A00B92216 /* CollageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageTableViewController.swift; sourceTree = "<group>"; };
 		EA7AB09D29CE9C8E00B92216 /* Collage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collage.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				EA8590CD29C917D1002BA6C2 /* Explore.storyboard */,
 				EA578B1729D5FA3000FDC83C /* ExploreTableViewController.swift */,
+				EA678B4229DF2FAE008F1336 /* FriendViewController.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				EA7AB09E29CE9C8E00B92216 /* Collage.swift in Sources */,
 				EA8590B629B6A97A002BA6C2 /* AppDelegate.swift in Sources */,
 				EADF2C6329D76F790048645A /* DrawingUIViewController.swift in Sources */,
+				EA678B4329DF2FAE008F1336 /* FriendViewController.swift in Sources */,
 				EA578B1829D5FA3000FDC83C /* ExploreTableViewController.swift in Sources */,
 				EA7AB09C29CE9B5A00B92216 /* CollageTableViewController.swift in Sources */,
 				EA8590B829B6A97A002BA6C2 /* SceneDelegate.swift in Sources */,
