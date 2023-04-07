@@ -17,9 +17,43 @@ protocol DrawingViewControllerDelegate: AnyObject {
 
 class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
  
+    let easyThingsToDraw = [
+        "Flower",
+        "Tree",
+        "Butterfly",
+        "Sun",
+        "Cloud",
+        "Rainbow",
+        "Bird",
+        "Cat",
+        "Dog",
+        "Fish",
+        "Boat",
+        "House",
+        "Bicycle",
+        "Car",
+        "Train",
+        "Plane",
+        "Rocket",
+        "Robot",
+        "Alien",
+        "Moon",
+        "Star",
+        "Heart",
+        "Apple",
+        "Banana",
+        "Orange",
+        "Grapes",
+        "Watermelon",
+        "Pizza",
+        "Hamburger",
+        "Ice Cream Cone",
+        "Cupcake"
+    ]
  
- 
- 
+    
+    @IBOutlet weak var Promt: UIButton!
+    
     @IBOutlet weak var canvasView: PKCanvasView!
     
     weak var delegate: DrawingViewControllerDelegate?
@@ -58,8 +92,14 @@ class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
 //        updateLayout(for: toolPicker)
         canvasView.becomeFirstResponder()
         
+        print("*************************")
+        let today = Date()  // Get the current date
+        let dayOfMonth = Calendar.current.component(.day, from: today)  // Get the day of the month
+        print(dayOfMonth)  // Print the day of the month
+
     
- 
+        // adding the prompt
+        Promt.setTitle("Draw " + easyThingsToDraw[dayOfMonth-1], for: .normal)
         // Do any additional setup after loading the view.
     }
  
