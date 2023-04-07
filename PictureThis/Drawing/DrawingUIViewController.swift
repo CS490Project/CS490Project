@@ -97,7 +97,7 @@ class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
         let dayOfMonth = Calendar.current.component(.day, from: today)  // Get the day of the month
         print(dayOfMonth)  // Print the day of the month
 
-    
+        //new 
         // adding the prompt
         Promt.setTitle("Draw " + easyThingsToDraw[dayOfMonth-1], for: .normal)
         // Do any additional setup after loading the view.
