@@ -20,8 +20,6 @@ class CollageTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        // TODO: Pt 1 - Set tracks property with mock tracks array
         loadCollages()
         
 
@@ -61,61 +59,44 @@ class CollageTableViewController: UITableViewController {
     }
     
     func loadCollages() {
-        // Load your collages data here and populate the collages array
-//        var tempCollages: [Collage] = []
-//        tempCollages = Collage.AnotherThing
-        
-        // Remoe all collages that are not the user's name. (in this case "Harjyot Badh")
-//        for collage in tempCollages {
-//            if (collage.name == "Harjyot Badh") {
-//                //@TODO: Change the ^ string to the actual user.name variable.
-//                // Add to collages.
-//                collages.append(collage)
-//            }
-//        }
-//        print("HEREEEEEEEEEEE")
         let uid = Auth.auth().currentUser!.uid
-        
-//        print(uid)
-        
         let storageRef = Storage.storage().reference()
-        
         let folderRef = storageRef.child("images/\(uid)")
-//        print(folderRef)
-        
+
         folderRef.listAll { (result, error) in
-            
             if let error = error {
                 print("Error retrieving files!!!!")
-            }
-            
-            for item in result!.items {
-//                print("HEREEEEEEEEEEE")
-//                print("****************************")
-//                print(item)
-                let fileRef = item
+            } else {
+                // Use DispatchGroup to wait for all asynchronous requests to finish before reloading the table view
+                let group = DispatchGroup()
 
-                fileRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
-                    if let error = error {
-//                        print ("-------------------------------------")
-                        print(error)
-                    } else {
-                        let image = UIImage(data: data!)
-//                        print("*****************************")
-//                        print(image?.size)
-                        self.collages.append(Collage(title: "Test", name: "Test", artworkUrl100: image!))
-//                        collages.append(title: "Test", name: "Test", artworkUrl100: image)
+                for item in result!.items {
+                    let fileRef = item
+
+                    // Enter the DispatchGroup
+                    group.enter()
+
+                    fileRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                        if let error = error {
+                            print(error)
+                        } else {
+                            if let data = data, let image = UIImage(data: data) {
+                                self.collages.append(Collage(title: "Test", name: "Test", artworkUrl100: image))
+                            }
+                        }
+
+                        // Leave the DispatchGroup
+                        group.leave()
                     }
+                }
 
+                group.notify(queue: .main) {
+                    self.tableView.reloadData()
                 }
             }
-            
         }
-        
-        
-        
-        
     }
+
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

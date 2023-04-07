@@ -93,6 +93,7 @@ class ExploreTableViewController: UITableViewController {
                     }
                 }
                 
+                self.collages.shuffle()
                 group.notify(queue: .main) {
                     self.tableView.reloadData()
                 }
