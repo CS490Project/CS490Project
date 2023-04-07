@@ -53,7 +53,7 @@ class ExploreTableViewController: UITableViewController {
     func loadCollages() {
         // Load your collages data here and populate the collages array
         // @TODO: Have all of the user's friends (or just all) collage appear here, by date.
-        collages = Collage.AnotherThing
+//        collages = Collage.AnotherThing
     }
 
     /*

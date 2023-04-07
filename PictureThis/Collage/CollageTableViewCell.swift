@@ -30,9 +30,9 @@ class CollageTableViewCell: UITableViewCell {
     func configure(with collage: Collage) {
         titleLabel.text = collage.title
         nameLabel.text = collage.name
-
+        collageImage.image = collage.artworkUrl100
         // Load image async via Nuke library image loading helper method
-        Nuke.loadImage(with: collage.artworkUrl100, into: collageImage)
+//        Nuke.loadImage(with: collage.artworkUrl100, into: collageImage)
     }
     
 
