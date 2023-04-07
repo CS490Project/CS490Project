@@ -7,8 +7,9 @@
 
 import UIKit
 import Nuke
-
-
+import Firebase
+import FirebaseAuth
+import FirebaseStorage
 
 class CollageTableViewController: UITableViewController {
     
@@ -62,16 +63,58 @@ class CollageTableViewController: UITableViewController {
     func loadCollages() {
         // Load your collages data here and populate the collages array
         var tempCollages: [Collage] = []
-        tempCollages = Collage.AnotherThing
+//        tempCollages = Collage.AnotherThing
         
         // Remoe all collages that are not the user's name. (in this case "Harjyot Badh")
-        for collage in tempCollages {
-            if (collage.name == "Harjyot Badh") {
-                //@TODO: Change the ^ string to the actual user.name variable.
-                // Add to collages.
-                collages.append(collage)
+//        for collage in tempCollages {
+//            if (collage.name == "Harjyot Badh") {
+//                //@TODO: Change the ^ string to the actual user.name variable.
+//                // Add to collages.
+//                collages.append(collage)
+//            }
+//        }
+        print("HEREEEEEEEEEEE")
+        let uid = Auth.auth().currentUser!.uid
+        
+        print(uid)
+        
+        let storageRef = Storage.storage().reference()
+        
+        let folderRef = storageRef.child("images/\(uid)")
+        print(folderRef)
+        
+        folderRef.listAll { (result, error) in
+            
+            if let error = error {
+                print("Error retrieving files!!!!")
             }
+            
+            for item in result!.items {
+//                print("HEREEEEEEEEEEE")
+//                print("****************************")
+//                print(item)
+                let fileRef = item
+
+                fileRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                    if let error = error {
+//                        print ("-------------------------------------")
+                        print(error)
+                    } else {
+                        let image = UIImage(data: data!)
+//                        print("*****************************")
+//                        print(image?.size)
+                        self.collages.append(Collage(title: "Test", name: , artworkUrl100: image!))
+//                        collages.append(title: "Test", name: "Test", artworkUrl100: image)
+                    }
+
+                }
+            }
+            
         }
+        
+        
+        
+        
     }
 
     /*
