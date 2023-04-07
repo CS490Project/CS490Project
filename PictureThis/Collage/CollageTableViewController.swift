@@ -62,7 +62,7 @@ class CollageTableViewController: UITableViewController {
     
     func loadCollages() {
         // Load your collages data here and populate the collages array
-        var tempCollages: [Collage] = []
+//        var tempCollages: [Collage] = []
 //        tempCollages = Collage.AnotherThing
         
         // Remoe all collages that are not the user's name. (in this case "Harjyot Badh")
@@ -73,15 +73,15 @@ class CollageTableViewController: UITableViewController {
 //                collages.append(collage)
 //            }
 //        }
-        print("HEREEEEEEEEEEE")
+//        print("HEREEEEEEEEEEE")
         let uid = Auth.auth().currentUser!.uid
         
-        print(uid)
+//        print(uid)
         
         let storageRef = Storage.storage().reference()
         
         let folderRef = storageRef.child("images/\(uid)")
-        print(folderRef)
+//        print(folderRef)
         
         folderRef.listAll { (result, error) in
             
@@ -103,7 +103,7 @@ class CollageTableViewController: UITableViewController {
                         let image = UIImage(data: data!)
 //                        print("*****************************")
 //                        print(image?.size)
-                        self.collages.append(Collage(title: "Test", name: , artworkUrl100: image!))
+                        self.collages.append(Collage(title: "Test", name: "Test", artworkUrl100: image!))
 //                        collages.append(title: "Test", name: "Test", artworkUrl100: image)
                     }
 

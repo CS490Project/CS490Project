@@ -13,6 +13,7 @@
 		7E7C0F5029DFAC6E00D60321 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7E7C0F4F29DFAC6E00D60321 /* FirebaseFirestore */; };
 		7E7C0F5229DFAC6E00D60321 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7E7C0F5129DFAC6E00D60321 /* FirebaseStorage */; };
 		7E7C0F5529DFAD5100D60321 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 7E7C0F5429DFAD5100D60321 /* Nuke */; };
+		7E7C0F5729DFD29E00D60321 /* ExploreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7C0F5629DFD29E00D60321 /* ExploreTableViewCell.swift */; };
 		EA578B1529D5F64400FDC83C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA578B1429D5F64400FDC83C /* ProfileViewController.swift */; };
 		EA578B1829D5FA3000FDC83C /* ExploreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA578B1729D5FA3000FDC83C /* ExploreTableViewController.swift */; };
 		EA678B4329DF2FAE008F1336 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA678B4229DF2FAE008F1336 /* FriendViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E7C0F5629DFD29E00D60321 /* ExploreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewCell.swift; sourceTree = "<group>"; };
 		EA578B1429D5F64400FDC83C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EA578B1729D5FA3000FDC83C /* ExploreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewController.swift; sourceTree = "<group>"; };
 		EA678B4229DF2FAE008F1336 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				EA8590CD29C917D1002BA6C2 /* Explore.storyboard */,
 				EA578B1729D5FA3000FDC83C /* ExploreTableViewController.swift */,
 				EA678B4229DF2FAE008F1336 /* FriendViewController.swift */,
+				7E7C0F5629DFD29E00D60321 /* ExploreTableViewCell.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E7C0F5729DFD29E00D60321 /* ExploreTableViewCell.swift in Sources */,
 				EA8590BA29B6A97A002BA6C2 /* ViewController.swift in Sources */,
 				EA7AB09E29CE9C8E00B92216 /* Collage.swift in Sources */,
 				EA8590B629B6A97A002BA6C2 /* AppDelegate.swift in Sources */,
