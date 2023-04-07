@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		20DDFC0B29E0C86F0008383F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20DDFC0A29E0C86F0008383F /* GoogleService-Info.plist */; };
 		7E7C0F4A29DFAC6E00D60321 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7E7C0F4929DFAC6E00D60321 /* FirebaseAnalytics */; };
 		7E7C0F4C29DFAC6E00D60321 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7E7C0F4B29DFAC6E00D60321 /* FirebaseAuth */; };
 		7E7C0F4E29DFAC6E00D60321 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 7E7C0F4D29DFAC6E00D60321 /* FirebaseDatabase */; };
@@ -15,6 +14,7 @@
 		7E7C0F5229DFAC6E00D60321 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7E7C0F5129DFAC6E00D60321 /* FirebaseStorage */; };
 		7E7C0F5529DFAD5100D60321 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 7E7C0F5429DFAD5100D60321 /* Nuke */; };
 		7E7C0F5729DFD29E00D60321 /* ExploreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7C0F5629DFD29E00D60321 /* ExploreTableViewCell.swift */; };
+		EA346B4629E0D10500C65C25 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA346B4529E0D10500C65C25 /* GoogleService-Info.plist */; };
 		EA578B1529D5F64400FDC83C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA578B1429D5F64400FDC83C /* ProfileViewController.swift */; };
 		EA578B1829D5FA3000FDC83C /* ExploreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA578B1729D5FA3000FDC83C /* ExploreTableViewController.swift */; };
 		EA678B4329DF2FAE008F1336 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA678B4229DF2FAE008F1336 /* FriendViewController.swift */; };
@@ -36,8 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		20DDFC0A29E0C86F0008383F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7E7C0F5629DFD29E00D60321 /* ExploreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewCell.swift; sourceTree = "<group>"; };
+		EA346B4529E0D10500C65C25 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA578B1429D5F64400FDC83C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EA578B1729D5FA3000FDC83C /* ExploreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewController.swift; sourceTree = "<group>"; };
 		EA678B4229DF2FAE008F1336 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 				EA8590C929C913A8002BA6C2 /* MainTabViewStoryboard.storyboard */,
 				EA8590CF29C917DF002BA6C2 /* Drawing.storyboard */,
 				EADF2C6229D76D2A0048645A /* DrawingUIViewController.swift */,
-				20DDFC0A29E0C86F0008383F /* GoogleService-Info.plist */,
+				EA346B4529E0D10500C65C25 /* GoogleService-Info.plist */,
 			);
 			path = PictureThis;
 			sourceTree = "<group>";
@@ -221,7 +221,7 @@
 				EA8590BF29B6A97D002BA6C2 /* Assets.xcassets in Resources */,
 				EA8590CA29C913A8002BA6C2 /* MainTabViewStoryboard.storyboard in Resources */,
 				EA8590BD29B6A97A002BA6C2 /* Main.storyboard in Resources */,
-				20DDFC0B29E0C86F0008383F /* GoogleService-Info.plist in Resources */,
+				EA346B4629E0D10500C65C25 /* GoogleService-Info.plist in Resources */,
 				EA8590CE29C917D1002BA6C2 /* Explore.storyboard in Resources */,
 				EA8590D029C917DF002BA6C2 /* Drawing.storyboard in Resources */,
 			);
