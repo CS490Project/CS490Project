@@ -97,7 +97,7 @@ class ExploreTableViewController: UITableViewController {
                                                 print("Error getting metadata: \(error.localizedDescription)")
                                                 return
                                             }
-                                            
+                                            // hi
                                             // Get the description metadata
                                             if let titleMeta = metadata?.customMetadata?["description"] {
                                                 print("Description: \(titleMeta)")
