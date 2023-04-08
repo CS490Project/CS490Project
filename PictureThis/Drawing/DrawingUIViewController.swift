@@ -107,7 +107,7 @@ class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
         
         // Do any additional setup after loading the view.
     }
- 
+ // new
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
  
