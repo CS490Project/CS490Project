@@ -47,18 +47,23 @@ class ExploreTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExploreTableViewCell", for: indexPath) as! ExploreTableViewCell
 
-        // Get the track that corresponds to the table view row
-        let collage = collages[indexPath.row]
+        // Check if the index is within the bounds of the collages array
+        if indexPath.row < collages.count {
+            // Get the track that corresponds to the table view row
+            let collage = collages[indexPath.row]
 
-        // Configure the cell with it's associated track
-        cell.configure(with: collage)
-        
+            // Configure the cell with its associated track
+            cell.configure(with: collage)
+        }
 
-        // return the cell for display in the table view
+        // Return the cell for display in the table view
         return cell
     }
+
     
     func loadCollages() {
+        collages.removeAll()
+        
         let db = Firestore.firestore()
         let currentUser = Auth.auth().currentUser?.uid
         if (currentUser == nil) {
@@ -85,28 +90,54 @@ class ExploreTableViewController: UITableViewController {
                             group.enter()
                             let fileRef = item
                             
-                            fileRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                            // Retrieve the metadata
+                            fileRef.getMetadata { metadata, error in
                                 if let error = error {
-                                    print(error)
-                                } else {
-                                    if let imageData = data, let image = UIImage(data: imageData) {
-                                        self.collages.append(Collage(title: "Test", name: "Test", artworkUrl100: image))
+                                    print("Error getting metadata: \(error)")
+                                    group.leave()
+                                } else if let metadata = metadata, let description = metadata.customMetadata?["description"] as? String {
+                                    // Get the user's name
+                                    db.collection("users").document(id).getDocument { (userDocument, err) in
+                                        if let err = err {
+                                            print("Error getting user's name: \(err)")
+                                            group.leave()
+                                        } else if let userDocument = userDocument, let userName = userDocument["name"] as? String {
+                                            // Download the image
+                                            fileRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                                                if let error = error {
+                                                    print(error)
+                                                } else {
+                                                    if let imageData = data, let image = UIImage(data: imageData) {
+                                                        self.collages.append(Collage(title: description, name: userName, artworkUrl100: image))
+                                                    }
+                                                }
+                                                group.leave()
+                                            }
+                                        } else {
+                                            group.leave()
+                                        }
                                     }
+                                } else {
+                                    group.leave()
                                 }
-                                group.leave()
                             }
                         }
                         group.leave()
                     }
                 }
                 
-                self.collages.shuffle()
                 group.notify(queue: .main) {
-                    self.tableView.reloadData()
+                    self.collages.shuffle()
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }
+
             }
         }
     }
+
+
 
 
     /*

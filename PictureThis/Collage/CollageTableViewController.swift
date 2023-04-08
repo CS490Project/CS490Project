@@ -69,41 +69,61 @@ class CollageTableViewController: UITableViewController {
         let uid = Auth.auth().currentUser!.uid
         let storageRef = Storage.storage().reference()
         let folderRef = storageRef.child("images/\(uid)")
+        let db = Firestore.firestore()
 
-        folderRef.listAll { (result, error) in
-            if let error = error {
-                print("Error retrieving files!!!!")
-            } else {
-                // Use DispatchGroup to wait for all asynchronous requests to finish before reloading the table view
-                let group = DispatchGroup()
+        db.collection("users").document(uid).getDocument { (userDocument, err) in
+            if let err = err {
+                print("Error getting user's name: \(err)")
+            } else if let userDocument = userDocument, let userName = userDocument["name"] as? String {
+                folderRef.listAll { (result, error) in
+                    if let error = error {
+                        print("Error retrieving files!!!!")
+                    } else {
+                        // Use DispatchGroup to wait for all asynchronous requests to finish before reloading the table view
+                        let group = DispatchGroup()
 
-                for item in result!.items {
-                    let fileRef = item
+                        for item in result!.items {
+                            let fileRef = item
 
-                    // Enter the DispatchGroup
-                    group.enter()
+                            // Enter the DispatchGroup
+                            group.enter()
 
-                    fileRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
-                        if let error = error {
-                            print(error)
-                        } else {
-                            if let data = data, let image = UIImage(data: data) {
-                                self.collages.append(Collage(title: "Test", name: "Test", artworkUrl100: image))
+                            // Retrieve the metadata
+                            fileRef.getMetadata { metadata, error in
+                                if let error = error {
+                                    print("Error getting metadata: \(error)")
+                                    group.leave()
+                                } else if let metadata = metadata, let description = metadata.customMetadata?["description"] as? String {
+                                    // Download the image
+                                    fileRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                                        if let error = error {
+                                            print(error)
+                                        } else {
+                                            if let data = data, let image = UIImage(data: data) {
+                                                self.collages.append(Collage(title: description, name: userName, artworkUrl100: image))
+                                            }
+                                        }
+
+                                        // Leave the DispatchGroup
+                                        group.leave()
+                                    }
+                                } else {
+                                    group.leave()
+                                }
                             }
                         }
 
-                        // Leave the DispatchGroup
-                        group.leave()
+                        self.collages.reverse()
+                        group.notify(queue: .main) {
+                            self.tableView.reloadData()
+                        }
                     }
-                }
-
-                self.collages.reverse()
-                group.notify(queue: .main) {
-                    self.tableView.reloadData()
                 }
             }
         }
     }
+
+
 
 
 

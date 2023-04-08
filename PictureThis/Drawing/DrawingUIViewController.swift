@@ -50,8 +50,8 @@ class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
         "Ice Cream",
         "Cupcake"
     ]
-    
- 
+    // variable store
+    var dayOfMonth: Int = -1
     
     @IBOutlet weak var Promt: UIButton!
     
@@ -95,15 +95,19 @@ class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
         
         print("*************************")
         let today = Date()  // Get the current date
-        let dayOfMonth = Calendar.current.component(.day, from: today)  // Get the day of the month
+        dayOfMonth = Calendar.current.component(.day, from: today)
+        dayOfMonth -= 1
+        // Get the day of the month
         print(dayOfMonth)  // Print the day of the month
 
-        //new 
+        //new
         // adding the prompt
-        Promt.setTitle("Draw " + easyThingsToDraw[dayOfMonth-1], for: .normal)
+        Promt.setTitle("Draw " + easyThingsToDraw[dayOfMonth], for: .normal)
+        
+        
         // Do any additional setup after loading the view.
     }
- 
+ // new
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
  
@@ -122,7 +126,7 @@ class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
     }
  
  
- // This function is the saving button
+    // This function is the saving button
     @IBAction func saveImage(_ sender: Any) {
         UIGraphicsBeginImageContextWithOptions(canvasView.bounds.size, false, UIScreen.main.scale)
         
@@ -144,7 +148,19 @@ class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
             
             let fileRef = storageRef.child("images/\(userID)/\(UUID().uuidString).jpg")
             
-            let uploadTask = fileRef.putData(imageData!, metadata: nil) { metadata, error in
+            // Calculate the index for the description based on the day of the month
+            let today = Date()
+            let dayOfMonth = Calendar.current.component(.day, from: today)
+            let descriptionIndex = dayOfMonth % easyThingsToDraw.count
+            let descriptionText = easyThingsToDraw[descriptionIndex]
+            
+            // Set metadata with the custom description field
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
+            metadata.customMetadata = ["description": descriptionText]
+            
+            // Upload the image with metadata
+            let uploadTask = fileRef.putData(imageData!, metadata: metadata) { metadata, error in
                 
                 // Check for errors
                 if error ==  nil && metadata != nil {
@@ -158,6 +174,7 @@ class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
         
         self.performSegue(withIdentifier: "saveSegue", sender: nil)
     }
+
     /// Should be saved under image
     
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
