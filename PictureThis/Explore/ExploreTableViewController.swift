@@ -15,6 +15,8 @@ class ExploreTableViewController: UITableViewController {
 
     // Your data source, an array of Collage objects
     var collages: [Collage] = []
+    
+    
 
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
@@ -47,75 +49,86 @@ class ExploreTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExploreTableViewCell", for: indexPath) as! ExploreTableViewCell
 
-        // Check if the index is within the bounds of the collages array
-        if indexPath.row < collages.count {
-            // Get the track that corresponds to the table view row
-            let collage = collages[indexPath.row]
+        // Get the collage that corresponds to the table view row
+        let collage = collages[indexPath.row]
 
-            // Configure the cell with its associated track
-            cell.configure(with: collage)
-        }
+        // Configure the cell with it's associated collage
+        cell.configure(with: collage)
 
-        // Return the cell for display in the table view
+        // Set the delegate for the cell
+        cell.delegate = self
+
+        // Set the tag of the like button
+        cell.likeButton.tag = indexPath.row
+
         return cell
     }
-
+    
+    
+    
+    
     
     func loadCollages() {
         collages.removeAll()
-        
+
         let db = Firestore.firestore()
         let currentUser = Auth.auth().currentUser?.uid
-        if (currentUser == nil) {
+        if currentUser == nil {
             return
         }
         db.collection("users").document(currentUser!).getDocument { (userDocument, err) in
             if let err = err {
                 print("Error getting user's friends: \(err)")
             } else {
-                guard let userDoc = userDocument, let friendsList = userDoc["friends"] as? [String] else {return}
-                
+                guard let userDoc = userDocument, let friendsList = userDoc["friends"] as? [String] else { return }
+
                 let storageRef = Storage.storage().reference()
                 let group = DispatchGroup()
-                
+
                 for id in friendsList {
                     group.enter()
+                    print("Friend ID: \(id)")
                     let folderRef = storageRef.child("images/\(id)")
                     folderRef.listAll { (result, error) in
                         if let error = error {
                             print("Error retrieving files!!")
                         }
-                        
+
                         for item in result!.items {
+                            print("item: \(item)")
                             group.enter()
                             let fileRef = item
-                            
+
                             // Retrieve the metadata
                             fileRef.getMetadata { metadata, error in
                                 if let error = error {
                                     print("Error getting metadata: \(error)")
                                     group.leave()
                                 } else if let metadata = metadata, let description = metadata.customMetadata?["description"] as? String {
-                                    // Get the user's name
-                                    db.collection("users").document(id).getDocument { (userDocument, err) in
-                                        if let err = err {
-                                            print("Error getting user's name: \(err)")
-                                            group.leave()
-                                        } else if let userDocument = userDocument, let userName = userDocument["name"] as? String {
-                                            // Download the image
-                                            fileRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
-                                                if let error = error {
-                                                    print(error)
-                                                } else {
-                                                    if let imageData = data, let image = UIImage(data: imageData) {
-                                                        self.collages.append(Collage(title: description, name: userName, artworkUrl100: image))
+                                    if let likeCountString = metadata.customMetadata?["likeCount"] as? String {
+                                        let likeCount = Int(likeCountString) ?? 0
+
+                                        db.collection("users").document(id).getDocument { (userDocument, err) in
+                                            if let err = err {
+                                                print("Error getting user's name: \(err)")
+                                                group.leave()
+                                            } else if let userDocument = userDocument, let userName = userDocument["name"] as? String {
+                                                fileRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                                                    if let error = error {
+                                                        print(error)
+                                                    } else {
+                                                        if let imageData = data, let image = UIImage(data: imageData) {
+                                                            self.collages.append(Collage(title: description, name: userName, artworkUrl100: image, likeCount: likeCount, userID: id, imageName: item.name))
+                                                        }
                                                     }
+                                                    group.leave()
                                                 }
+                                            } else {
                                                 group.leave()
                                             }
-                                        } else {
-                                            group.leave()
                                         }
+                                    } else {
+                                        group.leave()
                                     }
                                 } else {
                                     group.leave()
@@ -125,14 +138,86 @@ class ExploreTableViewController: UITableViewController {
                         group.leave()
                     }
                 }
-                
                 group.notify(queue: .main) {
-                    self.collages.shuffle()
+                    self.collages.sort { $0.likeCount > $1.likeCount }
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
                 }
+            }
+        }
+    }
 
+
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+
+}
+
+// Declare the delegate protocol
+protocol ExploreTableViewCellDelegate: AnyObject {
+    func likeButtonTapped(at index: Int)
+}
+
+// Implement the protocol in your ExploreTableViewController
+extension ExploreTableViewController: ExploreTableViewCellDelegate {
+    func likeButtonTapped(at index: Int) {
+        if index < collages.count {
+            let collage = collages[index]
+            let currentUserID = Auth.auth().currentUser?.uid ?? ""
+
+            let db = Firestore.firestore()
+            let likeRef = db.collection("likes").document("\(collage.userID)_\(collage.imageName)")
+
+            likeRef.getDocument { document, error in
+                if let document = document, document.exists {
+                    if let data = document.data(), let likedUsers = data["likedUsers"] as? [String], !likedUsers.contains(currentUserID) {
+                        self.incrementLikeCount(collage: collage, index: index)
+                        likeRef.updateData(["likedUsers": FieldValue.arrayUnion([currentUserID])])
+                    } else {
+                        print("User has already liked this collage")
+                    }
+                } else {
+                    self.incrementLikeCount(collage: collage, index: index)
+                    likeRef.setData(["likedUsers": [currentUserID]])
+                }
+            }
+        }
+    }
+    
+    func incrementLikeCount(collage: Collage, index: Int) {
+        collages[index].likeCount += 1
+
+        // Update like count in Firebase
+        let userID = collage.userID
+        let imageName = collage.imageName
+        let storageRef = Storage.storage().reference()
+        let imageRef = storageRef.child("images/\(userID)/\(imageName)")
+
+        imageRef.getMetadata { metadata, error in
+            if let error = error {
+                print("Error getting metadata: \(error)")
+            } else if let metadata = metadata {
+                // Update the metadata
+                let updatedMetadata = StorageMetadata()
+                updatedMetadata.customMetadata = [
+                    "description": metadata.customMetadata?["description"] ?? "",
+                    "likeCount": String(self.collages[index].likeCount)
+                ]
+
+                // Save the updated metadata
+                imageRef.updateMetadata(updatedMetadata) { _, error in
+                    if let error = error {
+                        print("Error updating metadata: \(error)")
+                    } else {
+                        print("Metadata updated successfully")
+                        self.tableView.reloadData()
+                    }
+                }
             }
         }
     }
@@ -140,59 +225,5 @@ class ExploreTableViewController: UITableViewController {
 
 
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+

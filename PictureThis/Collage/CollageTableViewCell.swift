@@ -14,6 +14,7 @@ class CollageTableViewCell: UITableViewCell {
     @IBOutlet weak var collageImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var likeCounterLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,6 +32,7 @@ class CollageTableViewCell: UITableViewCell {
         titleLabel.text = collage.title
         nameLabel.text = collage.name
         collageImage.image = collage.artworkUrl100
+        likeCounterLabel.text = String(collage.likeCount)
         
     }
     

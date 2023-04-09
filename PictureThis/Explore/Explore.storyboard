@@ -69,10 +69,28 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="95" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9D-MR-Y50">
+                                            <rect key="frame" x="298" y="204" width="50" height="56"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31M-ai-eyV">
+                                            <rect key="frame" x="323" y="215" width="50" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="hand.thumbsup" catalog="system"/>
+                                            <connections>
+                                                <action selector="likeButtonTapped:" destination="NPt-M2-3ed" eventType="touchUpInside" id="3OA-Pm-Aj9"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="exploreImage" destination="bvg-5G-mbp" id="YTU-ib-dhE"/>
+                                    <outlet property="likeButton" destination="31M-ai-eyV" id="DSk-jH-28L"/>
+                                    <outlet property="likeCounterLabel" destination="h9D-MR-Y50" id="Hkl-kd-6FH"/>
                                     <outlet property="title" destination="4so-wc-Ir9" id="dR3-US-jaH"/>
                                     <outlet property="userName" destination="0am-ha-XHt" id="Kgy-uQ-rnK"/>
                                 </connections>
@@ -113,7 +131,7 @@
                                 <rect key="frame" x="98" y="253" width="197" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqC-Lk-sGZ">
                                 <rect key="frame" x="123" y="356" width="146" height="35"/>
@@ -165,6 +183,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="hand.thumbsup" catalog="system" width="123" height="128"/>
         <image name="person.fill.badge.plus" catalog="system" width="128" height="125"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">

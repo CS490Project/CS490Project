@@ -9,9 +9,13 @@ import UIKit
 
 class ExploreTableViewCell: UITableViewCell {
     
+    weak var delegate: ExploreTableViewCellDelegate?
+    
     @IBOutlet weak var exploreImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var likeCounterLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +32,14 @@ class ExploreTableViewCell: UITableViewCell {
         title.text = collage.title
         userName.text = collage.name
         exploreImage.image = collage.artworkUrl100
+        likeCounterLabel.text = String(collage.likeCount)
+        
 
+    }
+    
+    @IBAction func likeButtonTapped(_ sender: UIButton) {
+        if let delegate = delegate {
+            delegate.likeButtonTapped(at: sender.tag)
+        }
     }
 }

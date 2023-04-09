@@ -66,6 +66,9 @@ class CollageTableViewController: UITableViewController {
 
     
     func loadCollages() {
+        
+        collages.removeAll()
+        
         let uid = Auth.auth().currentUser!.uid
         let storageRef = Storage.storage().reference()
         let folderRef = storageRef.child("images/\(uid)")
@@ -99,8 +102,8 @@ class CollageTableViewController: UITableViewController {
                                         if let error = error {
                                             print(error)
                                         } else {
-                                            if let data = data, let image = UIImage(data: data) {
-                                                self.collages.append(Collage(title: description, name: userName, artworkUrl100: image))
+                                            if let imageData = data, let image = UIImage(data: imageData), let likeCountString = metadata.customMetadata?["likeCount"], let likeCount = Int(likeCountString) {
+                                                self.collages.append(Collage(title: description, name: userName, artworkUrl100: image, likeCount: likeCount, userID: uid, imageName: item.name))
                                             }
                                         }
 

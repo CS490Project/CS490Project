@@ -41,10 +41,18 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vW7-MI-JnY">
+                                            <rect key="frame" x="301" y="209" width="72" height="46"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="collageImage" destination="Quz-VO-JA0" id="sgC-cs-JbA"/>
+                                    <outlet property="likeCounterLabel" destination="vW7-MI-JnY" id="Mud-yG-6xe"/>
                                     <outlet property="nameLabel" destination="Plc-5K-vii" id="KaM-hu-soe"/>
                                     <outlet property="titleLabel" destination="QIg-Vp-PHD" id="g1b-w5-uhg"/>
                                 </connections>

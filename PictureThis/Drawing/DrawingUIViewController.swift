@@ -151,13 +151,13 @@ class DrawingUIViewController: UIViewController, PKCanvasViewDelegate, PKToolPic
             // Calculate the index for the description based on the day of the month
             let today = Date()
             let dayOfMonth = Calendar.current.component(.day, from: today)
-            let descriptionIndex = dayOfMonth % easyThingsToDraw.count
+            let descriptionIndex = dayOfMonth - 1
             let descriptionText = easyThingsToDraw[descriptionIndex]
             
             // Set metadata with the custom description field
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpeg"
-            metadata.customMetadata = ["description": descriptionText]
+            metadata.customMetadata = ["description": descriptionText, "likeCount": "0"]
             
             // Upload the image with metadata
             let uploadTask = fileRef.putData(imageData!, metadata: metadata) { metadata, error in
