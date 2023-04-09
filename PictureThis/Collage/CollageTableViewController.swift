@@ -51,11 +51,14 @@ class CollageTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CollageTableViewCell", for: indexPath) as! CollageTableViewCell
 
-        // Get the track that corresponds to the table view row
-        let collage = collages[indexPath.row]
+        if (collages.count > indexPath.row) {
+            // Get the track that corresponds to the table view row
+            let collage = collages[indexPath.row]
 
-        // Configure the cell with it's associated track
-        cell.configure(with: collage)
+            // Configure the cell with it's associated track
+            cell.configure(with: collage)
+        }
+        
         
 
         // return the cell for display in the table view

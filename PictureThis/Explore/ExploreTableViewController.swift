@@ -49,11 +49,17 @@ class ExploreTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExploreTableViewCell", for: indexPath) as! ExploreTableViewCell
 
-        // Get the collage that corresponds to the table view row
-        let collage = collages[indexPath.row]
+        
+        if (indexPath.row < collages.count) {
+            // Get the collage that corresponds to the table view row
+            let collage = collages[indexPath.row]
+            
+            // Configure the cell with it's associated collage
+            cell.configure(with: collage)
+        }
+        
 
-        // Configure the cell with it's associated collage
-        cell.configure(with: collage)
+        
 
         // Set the delegate for the cell
         cell.delegate = self
