@@ -12,10 +12,9 @@
 This app allows people to draw pictures in a collage format. Friends will able to view other's pictures.
 
 ### App Evaluation
-[Evaluation of your app across the following attributes]
 - **Category:** Social Networking / ART
 - **Mobile:** On mobile devices only
-- **Story:** Asks users daily to draw a portion of a picture and share it with friends. At the end of a period it will show a collage of all drawings
+- **Story:** Asks users daily to draw a portion of a picture and share it with friends. At the end of a period it will show a collage of all drawings.
 - **Market:** Any person is able to use and enjory this app.
 - **Habit:** This app is recomended to be used daily so that the collage is full.
 - **Scope:** Our scope is connecting people all around the world and showing their creativity.
@@ -28,39 +27,38 @@ This app allows people to draw pictures in a collage format. Friends will able t
 
 * Users can create an account and sign in COMPLETED ✔
 * Users can choose a topic. COMPLETED ✔
-* Users can add friends
-* Users are given a topic to draw
+* Users can add friends COMPLETED ✔
+* Users are given a topic to draw each day COMPLETED ✔
 
 **Optional Nice-to-have Stories**
 
-* Vote button
-* Commenting
+* Vote button COMPLETED ✔
 * Super nice UI COMPLETED ✔
-* Brush thickness 
-* Different types of brushes
+* Brush thickness COMPLETED ✔
+* Different types of brushes COMPLETED ✔
 
 ### 2. Screen Archetypes
 
 * Login/Signup screen
-   * Users can create an account
+   * Users can create an account COMPLETED ✔
 
 * Collage/Post Viewer
-   * Users can view their and friend's drawings.
-   * Users can view their and friend's collages
-   * Users can create a new drawing
+   * Users can view their and friend's drawings. COMPLETED ✔
+   * Users can view their own drawings COMPLETED ✔
+   * Users can create a new drawing COMPLETED ✔
 
 * Drawing Page
-    * Users can view the new topic
-    * UI has a nice sketchpad with different options to draw the picture
-    * Allows user to post the picture for the day
-* Collage Page (Every 12 Days)
-    * Shows a collage of all the users drawings 
+    * Users can view the new topic COMPLETED ✔
+    * UI has a nice sketchpad with different options to draw the picture COMPLETED ✔
+    * Allows user to post the picture for the day COMPLETED ✔
+* Collage Page (Everyday)
+    * Shows a screen of all the user's drawings COMPLETED ✔
 ### 3. Navigation
 
-**Tab Navigation** (Ta to Screen)
+**Tab Navigation** (Tab to Screen)
 
 * Main tab
-    * Post Views
+    * Post Views 
     * Darawing page
 * Collage tab
     * Collage page
@@ -68,21 +66,15 @@ This app allows people to draw pictures in a collage format. Friends will able t
 **Flow Navigation** (Screen to Screen)
 
 * Logout
-   * When a user clicks this button, it brings them to the sign in screen.
-   * Will be on both of the tab screens.
+   * When a user clicks this button, it brings them to the sign in screen. COMPLETED ✔
+   * Will be on both of the tab screens. COMPLETED ✔
 * Create new drawing
-   * When a user presses the plus sign, it allows them to create a new drawing.
+   * When a user presses the plus sign, it allows them to create a new drawing. COMPLETED ✔
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
 <img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
 
 ![image](https://user-images.githubusercontent.com/89480509/222808615-d13587b0-a68a-45ab-b1c4-503238fcb09d.png)
-
-
-### [BONUS] Digital Wireframes & Mockups
-
-### [BONUS] Interactive Prototype
 
 ## Schema 
 [This section will be completed in Unit 9]
@@ -95,5 +87,4 @@ This app allows people to draw pictures in a collage format. Friends will able t
 
 
 https://hackmd.io/s/SkZ1P8pRo
-
 
