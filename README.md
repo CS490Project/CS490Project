@@ -72,7 +72,6 @@ This app allows people to draw pictures in a collage format. Friends will able t
    * When a user presses the plus sign, it allows them to create a new drawing. COMPLETED ✔
 
 ## Wireframes
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
 
 ![image](https://user-images.githubusercontent.com/89480509/222808615-d13587b0-a68a-45ab-b1c4-503238fcb09d.png)
 
@@ -81,9 +80,9 @@ This app allows people to draw pictures in a collage format. Friends will able t
 ### Models
 [Add table of models]
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+- Drawing Page: Sends the image drawn by the user to Firebase
+- Explore & Collage Page: Recieves the image from Firebase
+- Friends Page: Adds the given username to the friend's list in Firebase
 
 
 https://hackmd.io/s/SkZ1P8pRo
